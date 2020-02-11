@@ -14,7 +14,7 @@
       <div class="right menu">
       <%- if current_user -%>
         <div class="item">
-          <div class="ui button"<%= link_to 'Sign Out', destroy_user_session_path, method: :delete %> </div>
+          <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
         </div>
       <%- else -%>
         <div class="item">

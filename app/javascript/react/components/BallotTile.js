@@ -4,9 +4,9 @@ const BallotTile = (props) => {
 
   return (
     <div>
-      <h3>{props.name}</h3>
-      <p>{props.subject}</p>
-      <p>{props.description}</p>
+      <h3 id="ballot-name">Referendum: {props.name}</h3>
+      <p id="ballot-subject">Subject: {props.subject}</p>
+      <p id="ballot-description">Details: {props.description}</p>
     </div>
   )
 }

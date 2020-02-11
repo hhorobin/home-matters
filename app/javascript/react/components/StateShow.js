@@ -3,7 +3,7 @@ import React, { useState } from "react"
 const StateShow = (props) => {
 
   return (
-    <p>{props.stateName}</p>
+    <h2 className="state-show-name">{props.stateName}</h2>
   )
 }
 

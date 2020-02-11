@@ -25,13 +25,11 @@ const StatesIndexContainer = props => {
 
   const stateTiles = states.map(state => {
     return(
-      <div>
         <StateTile
           key={state.id}
           id={state.id}
           name={state.name}
         />
-      </div>
     )
   })
 

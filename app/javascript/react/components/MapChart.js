@@ -1,18 +1,16 @@
-import React, { useState, useEffect } from "react";
-import { geoCentroid } from "d3-geo";
+import React, { useState, useEffect } from "react"
+import { Link, Redirect } from "react-router-dom"
+import { geoCentroid } from "d3-geo"
 import {
   ComposableMap,
   Geographies,
   Geography,
   Marker,
   Annotation
-} from "react-simple-maps";
-import { Link, Redirect } from "react-router-dom"
+} from "react-simple-maps"
+import allStates from "./allstates.json"
 
-import allStates from "./allstates.json";
-import StateTile from './StateTile'
-
-const geoUrl = "https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json";
+const geoUrl = "https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json"
 
 const offsets = {
   VT: [50, -8],
@@ -24,8 +22,8 @@ const offsets = {
   DE: [33, 0],
   MD: [47, 10],
   DC: [49, 21]
-};
-// where state.name = cur.id
+}
+
 const MapChart = () => {
   const [ states, setStates ] = useState([])
   const [ redirect, setRedirect ] = useState(false)
@@ -49,29 +47,15 @@ const MapChart = () => {
     .catch(error => console.error(`Error in fetch: ${error.message}`))
   },[])
 
-  const stateTiles = states.map(state => {
-    return(
-        <StateTile
-          key={state.id}
-          id={state.id}
-          name={state.name}
-        />
-    )
-  })
-    const test = () => {
+    const handleClick = () => {
       const selectedState = states.find(state => state.name === event.target.innerHTML)
       setRedirect(true)
       setPath(`/states/${selectedState.id}`)
     }
 
-
     if(redirect === true) {
       return <Redirect to={path} />
     }
-
-
-
-  // const selectedState = states.find(state => state.name === cur.id)
 
   return (
     <ComposableMap projection="geoAlbersUsa">
@@ -83,13 +67,13 @@ const MapChart = () => {
                 key={geo.rsmKey}
                 stroke="#FFF"
                 geography={geo}
-                fill="#95A3A4"
+                fill="#6F935E"
+                className="state-tile"
               />
             ))}
             {geographies.map(geo => {
-              const centroid = geoCentroid(geo);
-              const cur = allStates.find(s => s.val === geo.id);
-
+              const centroid = geoCentroid(geo)
+              const cur = allStates.find(s => s.val === geo.id)
               return (
                 <g key={geo.rsmKey + "-name"}>
                   {cur &&
@@ -97,8 +81,8 @@ const MapChart = () => {
                     centroid[0] < -67 &&
                     (Object.keys(offsets).indexOf(cur.id) === -1 ? (
                       <Marker coordinates={centroid}>
-                        <text y="2" fontSize={8} textAnchor="middle" onClick={test}>
-                          {cur.id}
+                        <text y="2" fontWeight="bold" fontSize={8} textAnchor="middle" onClick={handleClick}>
+                        {cur.id}
                         </text>
                       </Marker>
                     ) : (
@@ -107,19 +91,19 @@ const MapChart = () => {
                         dx={offsets[cur.id][0]}
                         dy={offsets[cur.id][1]}
                       >
-                        <text x={4} fontSize={8} alignmentBaseline="middle">
+                        <text x={4} fontWeight="bold" fontSize={8} alignmentBaseline="middle">
                           {cur.id}
                         </text>
                       </Annotation>
                     ))}
                 </g>
-              );
+              )
             })}
           </>
         )}
       </Geographies>
     </ComposableMap>
-  );
-};
+  )
+}
 
 export default MapChart;

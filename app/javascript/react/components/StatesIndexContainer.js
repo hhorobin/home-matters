@@ -4,7 +4,6 @@ import MapChart from "./MapChart"
 
 const StatesIndexContainer = props => {
 
-
   return (
     <div>
       <div className="map">

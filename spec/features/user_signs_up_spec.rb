@@ -13,8 +13,14 @@ feature 'user registers', %Q{
   #   an error message
 
   scenario 'provide valid registration information' do
+
     visit new_user_registration_path
 
+    fill_in 'First Name', with: "first name"
+    fill_in 'Last Name', with: "last name"
+    fill_in 'City', with: "Ann Arbor"
+    fill_in 'State', with: "Michigan"
+    fill_in 'Phone', with: "1234567899"
     fill_in 'Email', with: 'john@example.com'
     fill_in 'Password', with: 'password'
     fill_in 'Password confirmation', with: 'password'

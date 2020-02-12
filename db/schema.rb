@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_12_165518) do
+ActiveRecord::Schema.define(version: 2020_02_12_203508) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,27 @@ ActiveRecord::Schema.define(version: 2020_02_12_165518) do
     t.string "subject", null: false
     t.bigint "state_id", null: false
     t.index ["state_id"], name: "index_ballots_on_state_id"
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string "title", null: false
+    t.string "description", null: false
+    t.string "address", null: false
+    t.string "city", null: false
+    t.string "state", null: false
+    t.string "date", null: false
+    t.string "time", null: false
+    t.bigint "ballot_id", null: false
+    t.bigint "creator_id", null: false
+    t.index ["ballot_id"], name: "index_events_on_ballot_id"
+    t.index ["creator_id"], name: "index_events_on_creator_id"
+  end
+
+  create_table "responses", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "event_id", null: false
+    t.index ["event_id"], name: "index_responses_on_event_id"
+    t.index ["user_id"], name: "index_responses_on_user_id"
   end
 
   create_table "states", force: :cascade do |t|
@@ -43,6 +64,7 @@ ActiveRecord::Schema.define(version: 2020_02_12_165518) do
     t.string "state", null: false
     t.string "phone", null: false
     t.string "role", default: "member", null: false
+    t.bigint "creator_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

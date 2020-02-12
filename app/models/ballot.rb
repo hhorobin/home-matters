@@ -4,6 +4,7 @@ class Ballot < ApplicationRecord
   validates :subject, presence: true
 
   belongs_to :state
+  has_many :events
 
   def self.create_from_collection(ballots)
     ballots.each do |hash_array|

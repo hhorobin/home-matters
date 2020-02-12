@@ -8,17 +8,19 @@
 </head>
 
 <body class="body">
-  <nav class="navbar navbar-default sticky-top">
+  <nav class="navbar navbar-default sticky-top bg-white border-bottom border-dark">
     <div class="container-fluid">
-    <a class="navbar-brand" href="/">Home Matters</a>
+    <a class="navbar-brand" href="/"><%= image_tag("Logo.png")%></a>
+    <a href="/"></a>
 
     <ul class="nav">
       <%- if current_user -%>
         <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
       <%- else -%>
-        <div class="btn btn-default navbar-btn"><%= link_to 'Sign Up', new_user_registration_path %></div>
-        <div class="btn btn-default navbar-btn"><%= link_to 'Sign In', new_user_session_path %></div>
+        <a class="btn btn-default navbar-btn text-dark" href="/users/sign_up">Sign Up</a>
+        <a class="btn btn-default navbar-btn text-dark" href="/users/sign_in">Sign In</a>
       <%- end -%>
+      </ul>
       </div>
 
 

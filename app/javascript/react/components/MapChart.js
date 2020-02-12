@@ -67,7 +67,7 @@ const MapChart = () => {
                 key={geo.rsmKey}
                 stroke="#FFF"
                 geography={geo}
-                fill="#6F935E"
+                fill="#196D67"
                 className="state-tile"
               />
             ))}

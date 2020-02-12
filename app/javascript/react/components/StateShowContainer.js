@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react"
 import { Redirect } from "react-router-dom"
 import _ from "lodash"
 
-import StateShow from './StateShow'
 import BallotTile from './BallotTile'
 
 const StateShowContainer = (props) => {
@@ -38,15 +37,14 @@ const StateShowContainer = (props) => {
         name={ballot.name}
         subject={ballot.subject}
         description={ballot.description}
+        stateId={stateId}
       />
     )
   })
 
   return (
     <div>
-      <StateShow
-        stateName={stateName}
-      />
+      <h2>{stateName}</h2>
       {ballotTiles}
     </div>
   )

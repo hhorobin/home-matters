@@ -8,6 +8,7 @@ class User < ApplicationRecord
   validates :state, presence: true
   validates :phone, presence: true
 
+  has_many :responses
   has_many :events, through: :responses
   has_many :created_events, class_name: "Event", foreign_key: "creator_id"
 

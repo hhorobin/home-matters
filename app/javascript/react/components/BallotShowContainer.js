@@ -1,10 +1,26 @@
 import React, { useState, useEffect } from "react"
+import EventForm from "./EventForm"
+import EventTile from "./EventTile"
 
 const BallotShowContainer = (props) => {
   const [ ballot, setBallot ] = useState({
     name: "",
     description: ""
   })
+  const [ events, setEvents ] = useState([])
+  const [ newEvent, setNewEvent ] = useState({
+    title: "",
+    description: "",
+    address: "",
+    city: "",
+    state: "",
+    date: "",
+    time: ""
+  })
+
+  const handleInputChange = () => {
+
+  }
 
   useEffect(() => {
     fetch(`/api/v1${props.match.url}`)
@@ -19,15 +35,39 @@ const BallotShowContainer = (props) => {
     })
     .then(response => response.json())
     .then(response => {
-      setBallot(response)
+      setBallot(response.ballot)
+      setEvents(response.ballot.events)
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }, [])
 
+  const eventTiles = events.map((event) => {
+    return(
+      <EventTile
+        key={event.id}
+        id={event.id}
+        title={event.title}
+        description={event.description}
+        address={event.address}
+        city={event.city}
+        state={event.state}
+        date={event.date}
+        time={event.time}
+        ballotId={event.ballot_id}
+        creatorId={event.creator_id}
+      />
+    )
+  })
+
   return (
     <div>
-    <p>{ballot.name}</p>
-    <p>{ballot.description}</p>
+      <h2>{ballot.name}</h2>
+      <h5>{ballot.description}</h5>
+      {eventTiles}
+      <EventForm
+        handleInputChange={handleInputChange}
+        newEvent={newEvent}
+        />
     </div>
   )
 }

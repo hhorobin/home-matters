@@ -8,7 +8,7 @@ class Api::V1::BallotsController < ApplicationController
   def show
     state = State.find(params["state_id"])
     ballot = Ballot.find(params["id"])
-    render json: ballot
+    render json: ballot, serializer: BallotShowSerializer
   end
 
 end

@@ -14,7 +14,7 @@ class Api::V1::EventsController < ApplicationController
       event.ballot = ballot
       event.creator = current_user
       if event.save
-        render json: event
+        render json: event, serializer: EventSerializer
       else
         render json: event.errors.full_messages
       end

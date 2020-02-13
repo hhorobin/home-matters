@@ -3,6 +3,8 @@ import EventForm from "./EventForm"
 import EventTile from "./EventTile"
 
 const BallotShowContainer = (props) => {
+  const stateId = props.match.params.state_id
+
   const [ ballot, setBallot ] = useState({
     name: "",
     description: ""
@@ -55,6 +57,8 @@ const BallotShowContainer = (props) => {
         time={event.time}
         ballotId={event.ballot_id}
         creatorId={event.creator_id}
+        responses={event.responses}
+        stateId={stateId}
       />
     )
   })

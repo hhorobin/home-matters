@@ -12,7 +12,6 @@ const BallotTile = (props) => {
       </Link>
       <p id="ballot-subject">Subject: {subject}</p>
       <p id="ballot-description">Details: {description}</p>
-
     </div>
   )
 }

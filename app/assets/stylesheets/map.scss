@@ -3,6 +3,9 @@
   margin: 0 auto;
 }
 
+.state-tile, .svg_marker {
+  cursor: pointer;
+}
 .state-tile:hover {
   fill: #21918A;
 }

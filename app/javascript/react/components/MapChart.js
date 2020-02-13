@@ -48,6 +48,12 @@ const MapChart = () => {
   },[])
 
     const handleClick = () => {
+      const selectedState = states.find(state => state.name === event.target.id)
+      setRedirect(true)
+      setPath(`/states/${selectedState.id}`)
+    }
+
+    const handleTextClick = () => {
       const selectedState = states.find(state => state.name === event.target.innerHTML)
       setRedirect(true)
       setPath(`/states/${selectedState.id}`)
@@ -67,6 +73,8 @@ const MapChart = () => {
                 key={geo.rsmKey}
                 stroke="#FFF"
                 geography={geo}
+                id={geo.properties.name}
+                onClick={handleClick}
                 fill="#196D67"
                 className="state-tile"
               />
@@ -80,8 +88,8 @@ const MapChart = () => {
                     centroid[0] > -160 &&
                     centroid[0] < -67 &&
                     (Object.keys(offsets).indexOf(cur.id) === -1 ? (
-                      <Marker coordinates={centroid}>
-                        <text y="2" fontWeight="bold" fontSize={8} textAnchor="middle" onClick={handleClick}>
+                      <Marker className="svg_marker" coordinates={centroid}>
+                        <text y="2" fontWeight="bold" fontSize={8} textAnchor="middle" onClick={handleTextClick} >
                         {cur.id}
                         </text>
                       </Marker>
@@ -91,7 +99,7 @@ const MapChart = () => {
                         dx={offsets[cur.id][0]}
                         dy={offsets[cur.id][1]}
                       >
-                        <text x={4} fontWeight="bold" fontSize={8} alignmentBaseline="middle">
+                        <text className="state-text" x={4} fontWeight="bold" fontSize={8} alignmentBaseline="middle" >
                           {cur.id}
                         </text>
                       </Annotation>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_12_203508) do
+ActiveRecord::Schema.define(version: 2020_02_14_012009) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 2020_02_12_203508) do
     t.string "time", null: false
     t.bigint "ballot_id", null: false
     t.bigint "creator_id", null: false
+    t.boolean "approved", default: false, null: false
     t.index ["ballot_id"], name: "index_events_on_ballot_id"
     t.index ["creator_id"], name: "index_events_on_creator_id"
   end

@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   root 'static_pages#index'
 
-  get "/states/:state_id/ballots/:id/new", to: 'static_pages#create'
+  get "/states/:state_id/ballots/:id/new", to: 'static_pages#create' #need?
+  get "/events/edit", to: 'static_pages#update'
   get "/", to: 'static_pages#index'
   get "/states", to: 'static_pages#index'
   get "/states/:id", to: 'static_pages#index'
@@ -20,4 +21,6 @@ Rails.application.routes.draw do
       end
     end
   end
+
+  resources :events, only: [:index, :update]
 end

@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
   root 'static_pages#index'
 
+  get "/states/:state_id/ballots/:id/new", to: 'static_pages#create'
   get "/", to: 'static_pages#index'
   get "/states", to: 'static_pages#index'
   get "/states/:id", to: 'static_pages#index'
   get "/states/:state_id/ballots/:id", to: 'static_pages#index'
+  get "/users/:id", to: 'static_pages#index'
 
   devise_for :users
 
@@ -17,6 +19,7 @@ Rails.application.routes.draw do
       resources :events, only: [] do
         resources :responses, only: [:create]
       end
+      resources :users, only: [:show]
     end
   end
 end

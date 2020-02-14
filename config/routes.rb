@@ -13,7 +13,9 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :states, only: [:index, :show] do
-        resources :ballots, only: [:index, :show]
+        resources :ballots, only: [:index, :show] do
+          resources :events, only: [:create]
+        end
       end
 
       resources :events, only: [] do

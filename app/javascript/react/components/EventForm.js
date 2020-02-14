@@ -1,12 +1,13 @@
 import React, { useState } from "react"
-// import ErrorList from "./ErrorList"
+import ErrorList from "./ErrorList"
 import _ from "lodash"
 
 const EventForm = (props) => {
-  const { handleInputChange, newEvent } = props
+  const { handleInputChange, handleSubmit, newEvent, errors } = props
+
   return(
     <div>
-      <form id="new-event">
+      <form id="new-event" onSubmit={handleSubmit}>
         <div className="form-group">
           <label>Event Name</label>
           <input className="form-control" type="text" id="title" onChange={handleInputChange} value={newEvent.title}/>
@@ -14,7 +15,7 @@ const EventForm = (props) => {
 
         <div className="form-group">
           <label >Description</label>
-          <textarea className="form-control" id="description" rows="3" onChange={handleInputChange} value={newEvent.name}></textarea>
+          <textarea className="form-control" id="description" rows="3" onChange={handleInputChange} value={newEvent.description}></textarea>
         </div>
 
         <div className="form-group">
@@ -43,6 +44,9 @@ const EventForm = (props) => {
         </div>
 
         <input id="submit" type="submit" />
+        <ErrorList
+        errors={errors}
+        />
       </form>
     </div>
   )

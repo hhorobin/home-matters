@@ -2,6 +2,10 @@ class Api::V1::EventsController < ApplicationController
   skip_before_action :verify_authenticity_token, only: [:create]
   protect_from_forgery unless: -> { request.format.json? }
 
+  def index
+    render json: current_user.events
+  end
+
   def create
     ballot = Ballot.find(params["ballot_id"])
     if user_signed_in?

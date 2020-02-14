@@ -14,7 +14,7 @@ class StateScraper
     create_ballot_hash
   end
 
-  # private
+   private
 
   def request_state_ballots
     return open(url)

@@ -2,9 +2,10 @@ class Api::V1::ResponsesController < ApplicationController
 
   def create
     event = Event.find(params["event_id"])
-    responses = Response.where(event: params[:event_id]
-      
-    if responses.where(user: current_user) == []
+    responses = Response.where(event: params[:event_id])
+    existing = responses.where(user: current_user)
+
+    if existing == []
       Response.create(
         event: event,
         user: current_user

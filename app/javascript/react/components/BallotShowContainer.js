@@ -38,7 +38,9 @@ const BallotShowContainer = (props) => {
     .then(response => response.json())
     .then(response => {
       setBallot(response.ballot)
-      setEvents(response.ballot.events)
+      let events = response.ballot.events
+      let approved = events.filter(event => event.approved === true)
+      setEvents(approved)
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }, [])
@@ -58,6 +60,7 @@ const BallotShowContainer = (props) => {
         ballotId={event.ballot_id}
         creatorId={event.creator_id}
         responses={event.responses}
+        approved={event.approved}
         stateId={stateId}
       />
     )

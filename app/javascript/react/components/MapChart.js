@@ -64,7 +64,7 @@ const MapChart = () => {
     }
 
   return (
-  <div className="background-image">
+  <div className="map">
     <div id="solid-map">
     <ComposableMap projection="geoAlbersUsa">
       <Geographies geography={geoUrl}>

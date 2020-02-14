@@ -15,6 +15,9 @@
       <ul class="nav">
         <%- if current_user -%>
           <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
+          <% if current_user.admin? %>
+            <%= link_to "Approve Events", events_edit_path, :class => "title color signout" %>
+          <% end %>
         <%- else -%>
           <a class="btn btn-default navbar-btn text-dark" href="/users/sign_up">Sign Up</a>
           <a class="btn btn-default navbar-btn text-dark" href="/users/sign_in">Sign In</a>

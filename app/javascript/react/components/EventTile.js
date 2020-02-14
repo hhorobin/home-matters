@@ -5,7 +5,7 @@ const EventTile = props => {
   const [ responses, setResponses ] = useState(props.responses)
 
   const { id, title, description, address, city, state, date, time, ballot_id, creator_id } = props
-
+  let className = "hidden alert alert-warning"
   const addResponse = () => {
     fetch(`/api/v1/events/${id}/responses`, {
       credentials: "same-origin",
@@ -43,8 +43,7 @@ const EventTile = props => {
       <ResponseTile
       addResponse={addResponse}
       />
-      {responses.length} other people are attending
-
+      <p className="attendees">Going: {responses.length}</p>
     </div>
   )
 }

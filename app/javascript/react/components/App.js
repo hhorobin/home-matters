@@ -5,6 +5,7 @@ import StatesIndexContainer from "./StatesIndexContainer"
 import StateShowContainer from "./StateShowContainer"
 import BallotShowContainer from "./BallotShowContainer"
 import ApproveEvents from "./ApproveEvents"
+import UserEvents from "./UserEvents"
 
 
 export const App = (props) => {
@@ -16,6 +17,7 @@ export const App = (props) => {
         <Route exact path="/states/:id" component={StateShowContainer}/>
         <Route exact path="/states/:state_id/ballots/:id" component={BallotShowContainer}/>
         <Route exact path="/events/edit" component={ApproveEvents}/>
+        <Route exact path="/events" component={UserEvents}/>
       </Switch>
     </BrowserRouter>
   )

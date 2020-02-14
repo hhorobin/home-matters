@@ -18,7 +18,6 @@ const ApproveEvents = (props) => {
     .then(response => response.json())
     .then(response => {
       setEvents(response.events)
-
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }, [])

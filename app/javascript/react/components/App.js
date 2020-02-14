@@ -4,7 +4,7 @@ import { Route, Switch, BrowserRouter } from "react-router-dom"
 import StatesIndexContainer from "./StatesIndexContainer"
 import StateShowContainer from "./StateShowContainer"
 import BallotShowContainer from "./BallotShowContainer"
-import UserContainer from "./UserContainer"
+
 
 export const App = (props) => {
   return (
@@ -14,7 +14,6 @@ export const App = (props) => {
         <Route exact path="/states" component={StatesIndexContainer}/>
         <Route exact path="/states/:id" component={StateShowContainer}/>
         <Route exact path="/states/:state_id/ballots/:id" component={BallotShowContainer}/>
-        <Route exact path="/users/:id" component={UserContainer}/>
       </Switch>
     </BrowserRouter>
   )

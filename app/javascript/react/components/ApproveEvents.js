@@ -5,7 +5,7 @@ const ApproveEvents = (props) => {
   const [ events, setEvents ] = useState([])
 
   useEffect(() => {
-    fetch(`/events`)
+    fetch(`/api/v1/events`)
     .then(response => {
       if (response.ok) {
         return response
@@ -23,7 +23,7 @@ const ApproveEvents = (props) => {
   }, [])
 
   const approveEvent = (eventId) => {
-    fetch(`/events/${eventId}`, {
+    fetch(`/api/v1/events/${eventId}`, {
       credentials: 'same-origin',
       method: "PATCH",
       headers: {

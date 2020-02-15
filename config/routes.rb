@@ -15,15 +15,13 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :states, only: [:index, :show] do
         resources :ballots, only: [:index, :show] do
-          resources :events, only: [:index, :create]
+          resources :events, only: [:index, :create, :update]
         end
       end
 
-      resources :events, only: [:index] do
+      resources :events, only: [:index, :update] do
         resources :responses, only: [:create]
       end
     end
   end
-
-  resources :events, only: [:index, :update]
 end

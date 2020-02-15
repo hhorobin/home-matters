@@ -64,7 +64,6 @@ const BallotShowContainer = (props) => {
       })
       .then(response => response.json())
       .then(response => {
-
         if (response.event) {
           setEvents([...events, response.event])
           window.alert(response.message)

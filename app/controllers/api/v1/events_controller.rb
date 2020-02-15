@@ -26,7 +26,6 @@ class Api::V1::EventsController < ApplicationController
     end
   end
 
-
   def alert_host
     event = Event.find(params[:id])
     user = event.creator

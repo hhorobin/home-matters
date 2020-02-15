@@ -3,10 +3,10 @@ require "rails_helper"
 RSpec.describe Api::V1::StatesController, type: :controller do
   let!(:test_state) { State.create(
     name: "California",
-  ) }
+  )}
   let!(:second_test_state) { State.create(
     name: "Alabama",
-  ) }
+  )}
 
   describe "GET#index" do
     it "should return a list of all the states" do

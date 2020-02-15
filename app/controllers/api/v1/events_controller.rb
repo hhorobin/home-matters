@@ -3,7 +3,11 @@ class Api::V1::EventsController < ApplicationController
   protect_from_forgery unless: -> { request.format.json? }
 
   def index
-    render json: current_user.events
+    if current_user.admin?
+      render json: Event.where(approved: false)
+    else
+      render json: current_user.events
+    end
   end
 
   def create
@@ -12,7 +16,6 @@ class Api::V1::EventsController < ApplicationController
       event = Event.new(event_params)
       event.ballot = ballot
       event.creator = current_user
-
       if event.save
         render json: { event: EventSerializer.new(event), message: "Your event has been submitted for approval!" }
       else
@@ -23,6 +26,7 @@ class Api::V1::EventsController < ApplicationController
     end
   end
 
+
   def alert_host
     event = Event.find(params[:id])
     user = event.creator
@@ -30,6 +34,17 @@ class Api::V1::EventsController < ApplicationController
     TwilioClient.new.send_text(user, message)
 
     render json: event
+  end
+
+  def update
+    event = Event.find(params["id"])
+    if current_user.admin?
+      event.approved = true
+      event.save!
+      render json: Event.where(approved: false)
+    else
+      render json: false
+    end
   end
 
   def event_params

@@ -15,10 +15,16 @@
       <a href="/"></a>
       <ul class="nav">
         <%- if current_user -%>
-          <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
-          <%= link_to 'My Home', events_path  %>
+          <div class="nav-link">
+              <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
+          </div>
+          <div class="nav-link">
+              <%= link_to 'My Home', events_path  %>
+          </div>
         <% if current_user.admin? %>
-          <%= link_to "Approve Events", events_edit_path, :class => "title color signout" %>
+          <div class="nav-link">
+            <%= link_to "Approve Events", events_edit_path %>
+          </div>
         <% end %>
         <%- else -%>
           <a class="btn btn-default navbar-btn text-dark" href="/users/sign_up">Sign Up</a>

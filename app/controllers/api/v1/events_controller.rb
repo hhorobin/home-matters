@@ -26,6 +26,16 @@ class Api::V1::EventsController < ApplicationController
     end
   end
 
+
+  def alert_host
+    event = Event.find(params[:id])
+    user = event.creator
+    message = "RSVP alert from Home Matters! You have a new attendee for #{event.title}"
+    TwilioClient.new.send_text(user, message)
+
+    render json: event
+  end
+
   def update
     event = Event.find(params["id"])
     if current_user.admin?

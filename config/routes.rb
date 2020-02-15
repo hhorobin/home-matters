@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get "/states", to: 'static_pages#index'
   get "/states/:id", to: 'static_pages#index'
   get "/states/:state_id/ballots/:id", to: 'static_pages#index'
+  post '/events/:event_id/alert_host', to: 'static_pages#index'
 
   devise_for :users
 
@@ -19,7 +20,10 @@ Rails.application.routes.draw do
         end
       end
 
-      resources :events, only: [:index, :update] do
+      resources :events, only: [:index] do
+        member do
+          post :alert_host
+        end
         resources :responses, only: [:create]
       end
     end

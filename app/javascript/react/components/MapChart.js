@@ -48,15 +48,36 @@ const MapChart = () => {
   },[])
 
     const handleClick = () => {
-      const selectedState = states.find(state => state.name === event.target.id)
-      setRedirect(true)
-      setPath(`/states/${selectedState.id}`)
+      if (states.find(state => state.name === event.target.id)) {
+        const selectedState = states.find(state => state.name === event.target.id)
+        setRedirect(true)
+        setPath(`/states/${selectedState.id}`)
+      }
+      else {
+        window.alert("This state does not have any upcoming ballot referendums.")
+      }
     }
 
     const handleTextClick = () => {
-      const selectedState = states.find(state => state.name === event.target.innerHTML)
-      setRedirect(true)
-      setPath(`/states/${selectedState.id}`)
+      if (states.find(state => state.name === event.target.innerHTML)) {
+        const selectedState = states.find(state => state.name === event.target.innerHTML)
+        setRedirect(true)
+        setPath(`/states/${selectedState.id}`)
+      }
+      else {
+        window.alert("This state does not have any upcoming ballot referendums.")
+      }
+    }
+
+    const handleAnnotationClick = () => {
+      if (states.find(state => state.name === event.target.innerHTML)) {
+        const selectedState = states.find(state => state.name === event.target.innerHTML)
+        setRedirect(true)
+        setPath(`/states/${selectedState.id}`)
+      }
+      else {
+        window.alert("This state does not have any upcoming ballot referendums.")
+      }
     }
 
     if(redirect === true) {
@@ -97,9 +118,11 @@ const MapChart = () => {
                       </Marker>
                     ) : (
                       <Annotation
+                        className="annotation"
                         subject={centroid}
                         dx={offsets[cur.id][0]}
                         dy={offsets[cur.id][1]}
+                        onClick={handleAnnotationClick}
                       >
                         <text className="state-text" x={4} fontWeight="bold" fontSize={8} alignmentBaseline="middle" >
                           {cur.id}

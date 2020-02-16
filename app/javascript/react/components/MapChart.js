@@ -73,11 +73,11 @@ const MapChart = () => {
             {geographies.map(geo => (
               <Geography
                 key={geo.rsmKey}
-                stroke="#FFF"
+                stroke="white"
                 geography={geo}
                 id={geo.properties.name}
                 onClick={handleClick}
-                fill="#196D67"
+                fill="#365055"
                 className="state-tile"
               />
             ))}

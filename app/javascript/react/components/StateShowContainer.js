@@ -42,8 +42,14 @@ const StateShowContainer = (props) => {
   })
 
   return (
-    <div>
-      <h2>{stateName}</h2>
+    <div className="container text-center">
+      <div className="row">
+        <figure className="snip1104">
+          <figcaption>
+            <h2> Referendums in <span> {stateName}</span> </h2>
+          </figcaption>
+        </figure>
+      </div>
       {ballotTiles}
     </div>
   )

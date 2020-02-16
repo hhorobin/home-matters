@@ -20,7 +20,7 @@ Rails.application.routes.draw do
         end
       end
 
-      resources :events, only: [:index] do
+      resources :events, only: [:index, :update] do
         member do
           post :alert_host
         end

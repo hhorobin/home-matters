@@ -3,7 +3,6 @@ import ResponseTile from "./ResponseTile"
 
 const EventTile = props => {
   const [ responses, setResponses ] = useState(props.responses)
-  const [ className, setClassName ] = useState("hidden")
   const { id, title, description, address, city, state, date, time, ballot_id, creator_id } = props
 
   const addResponse = () => {
@@ -49,8 +48,8 @@ const EventTile = props => {
       }
     })
     .then(response => response.json())
-    .then(body => {
-      setClassName("responded")
+    .then(response => {
+      window.alert(response.message)
       return body
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`))
@@ -69,7 +68,6 @@ const EventTile = props => {
       sendHostText={sendHostText}
       addResponse={addResponse}
       />
-      <div className={className}>We'll let the host know to expect you!</div>
       <p className="attendees">Going: {responses.length}</p>
     </div>
   )

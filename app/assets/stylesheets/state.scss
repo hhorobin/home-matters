@@ -1,0 +1,41 @@
+.state-name {
+  font-size: 40px;
+}
+
+.card {
+  width: 40%;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+
+figure.snip1104 {
+  font-family: 'Raleway', Arial, sans-serif;
+  position: relative;
+  margin-left: 80px;
+  margin-top: 90px;
+  margin-bottom: 60px;
+  min-width: 220px;
+  max-width: 450px;
+  max-height: 220px;
+  width: 100%;
+  color: #ffffff;
+}
+
+figure.snip1104 h2 {
+  position: absolute;
+  left: 40px;
+  right: 40px;
+  background: #353B37;
+  transform: skew(-8deg) rotate(-8deg) translate(0, -50%);
+  padding: 5px;
+  margin: 0;
+  top: 50%;
+  text-transform: uppercase;
+  font-weight: 400;
+  border: solid black 3px;
+}
+
+figure.snip1104 h2 span {
+  font-weight: 800;
+}

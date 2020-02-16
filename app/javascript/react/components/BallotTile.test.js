@@ -15,14 +15,14 @@ describe("BallotTile", () => {
         <BallotTile
           name="Great Ballot"
           subject="Improving the world"
-          description="I will improve the world greatly."
+          description="It will improve the world greatly."
         />
       </BrowserRouter>
     )
   })
 
   it("should render an h3 element containing the ballot name", () => {
-    expect(wrapper.find("#ballot-name").text()).toBe("Referendum: Great Ballot")
+    expect(wrapper.find("#ballot-name").text()).toBe("Great Ballot")
   })
 
   it("should render an p element containing the ballot subject", () => {
@@ -30,6 +30,6 @@ describe("BallotTile", () => {
   })
 
   it("should render an p element containing the ballot description", () => {
-    expect(wrapper.find("#ballot-description").text()).toBe("Details: I will improve the world greatly.")
+    expect(wrapper.find("#ballot-description").text()).toBe("It will improve the world greatly.")
   })
 })

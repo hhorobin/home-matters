@@ -3,7 +3,7 @@ import ResponseTile from "./ResponseTile"
 
 const EventTile = props => {
   const [ responses, setResponses ] = useState(props.responses)
-  const { id, title, description, address, city, state, date, time, ballot_id, creator_id } = props
+  const { id, title, description, address, city, state, date, time, ballotId, creatorContact } = props
 
   const addResponse = () => {
     fetch(`/api/v1/events/${id}/responses`, {
@@ -57,18 +57,20 @@ const EventTile = props => {
 
   return (
     <div>
-      <h2>Event:{title}</h2>
-      <p>{description}</p>
-      <p>{address}</p>
-      <p>{city}</p>
-      <p>{state}</p>
-      <p>{date}</p>
-      <p>{time}</p>
-      <ResponseTile
-      sendHostText={sendHostText}
-      addResponse={addResponse}
-      />
-      <p className="attendees">Going: {responses.length}</p>
+      <div className="row justify-content-center">
+        <div className="col-6 text-center event">
+          <h3 className="event-title">{title}</h3>
+          <p>{description}</p>
+          <p>{address} {city}, {state}</p>
+          <p>{date} at {time}</p>
+          <p>Contact {creatorContact} for more info</p>
+          <ResponseTile
+          sendHostText={sendHostText}
+          addResponse={addResponse}
+          />
+          <p className="attendees">Going: {responses.length}</p>
+        </div>
+      </div>
     </div>
   )
 }

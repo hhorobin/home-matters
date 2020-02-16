@@ -23,6 +23,8 @@ const BallotShowContainer = (props) => {
   const [ errors, setErrors ] = useState("")
 
   useEffect(() => {
+    window.scrollTo(0, 0)
+
     fetch(`/api/v1${props.match.url}`)
     .then(response => {
       if (response.ok) {
@@ -128,7 +130,7 @@ const BallotShowContainer = (props) => {
         date={event.date}
         time={event.time}
         ballotId={event.ballot_id}
-        creatorId={event.creator_id}
+        creatorContact={event.creator_contact}
         responses={event.responses}
         approved={event.approved}
         stateId={stateId}
@@ -138,15 +140,18 @@ const BallotShowContainer = (props) => {
 
   return (
     <div>
-      <h2>{ballot.name}</h2>
-      <h5>{ballot.description}</h5>
+      <div className="my-container">
+        <div className= "upcoming-events">
+          <h2>Upcoming Events for <span>{ballot.name}</span></h2>
+        </div>
       {eventTiles}
+      </div>
       <EventForm
         handleInputChange={handleInputChange}
         newEvent={newEvent}
         handleSubmit={handleSubmit}
         errors={errors}
-        />
+      />
     </div>
   )
 }

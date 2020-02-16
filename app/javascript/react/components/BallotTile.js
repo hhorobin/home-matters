@@ -15,7 +15,7 @@ const BallotTile = (props) => {
             </div>
             <p id="ballot-description">{description}</p>
             <Link to={`/states/${stateId}/ballots/${id}`}>
-            <div className="btn btn-secondary">How Can I Help?</div>
+            <div className="btn btn-secondary">Get Involved</div>
             </Link>
           </div>
         </div>

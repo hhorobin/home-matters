@@ -46,7 +46,7 @@ const StateShowContainer = (props) => {
       <div className="row">
         <figure className="snip1104">
           <figcaption>
-            <h2> Referendums in <span> {stateName}</span> </h2>
+            <h2> Referendums in <span>{stateName}</span> </h2>
           </figcaption>
         </figure>
       </div>

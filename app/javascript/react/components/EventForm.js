@@ -6,7 +6,7 @@ const EventForm = (props) => {
   const { handleInputChange, handleSubmit, newEvent, errors } = props
 
   return(
-    <div>
+    <div className="event-form">
       <form id="new-event" onSubmit={handleSubmit}>
         <div className="form-group">
           <label>Event Name</label>

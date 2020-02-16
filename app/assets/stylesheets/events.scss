@@ -1,0 +1,29 @@
+.my-container {
+  background-color: #976C6E;
+}
+
+.upcoming-events {
+  padding-top: 20px;
+  padding-bottom: 10px;
+  text-align: center;
+  font-family: 'Raleway', Arial, sans-serif;
+  text-transform: uppercase;
+  color: black;
+}
+
+div.upcoming-events span {
+  font-weight: 550;
+  font-style: italic;
+}
+
+.event {
+  border: solid black 2px;
+  margin-bottom: 15px;
+  background-color: white;
+  color: black;
+}
+
+.event-title {
+  font-weight: 600;
+  margin-top: 20px;
+}

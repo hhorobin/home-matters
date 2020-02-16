@@ -1,18 +1,13 @@
 .my-container {
-  left: 0;
-  top: 0;
-  // background-image: url("https://images.unsplash.com/photo-1503551723145-6c040742065b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80");
   background-color: #976C6E;
-  z-index: -1;
-  background-size: cover;
-  background-repeat: no-repeat;
 }
 
 .upcoming-events {
+  padding-top: 20px;
+  padding-bottom: 10px;
   text-align: center;
   font-family: 'Raleway', Arial, sans-serif;
   text-transform: uppercase;
-  z-index: 2;
   color: black;
 }
 
@@ -30,6 +25,5 @@ div.upcoming-events span {
 
 .event-title {
   font-weight: 600;
-  margin-top: 10px;
-  z-index: 2;
+  margin-top: 20px;
 }

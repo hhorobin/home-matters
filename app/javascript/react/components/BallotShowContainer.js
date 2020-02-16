@@ -140,10 +140,10 @@ const BallotShowContainer = (props) => {
 
   return (
     <div>
-    <div className="my-container">
-      <div className= "upcoming-events">
-        <h2>Upcoming Events for <span>{ballot.name}</span></h2>
-      </div>
+      <div className="my-container">
+        <div className= "upcoming-events">
+          <h2>Upcoming Events for <span>{ballot.name}</span></h2>
+        </div>
       {eventTiles}
       </div>
       <EventForm
@@ -151,7 +151,7 @@ const BallotShowContainer = (props) => {
         newEvent={newEvent}
         handleSubmit={handleSubmit}
         errors={errors}
-        />
+      />
     </div>
   )
 }

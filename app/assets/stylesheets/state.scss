@@ -3,18 +3,16 @@
 }
 
 .card {
-  width: 40%;
-  margin: 0 auto;
   margin-bottom: 20px;
+  margin-top: 25px;
 }
-
 
 figure.snip1104 {
   font-family: 'Raleway', Arial, sans-serif;
   position: relative;
-  margin-left: 80px;
+  margin-left: 1px;
   margin-top: 90px;
-  margin-bottom: 60px;
+  margin-bottom: 12vh;
   min-width: 220px;
   max-width: 450px;
   max-height: 220px;
@@ -38,4 +36,26 @@ figure.snip1104 h2 {
 
 figure.snip1104 h2 span {
   font-weight: 800;
+}
+
+.legislators a {
+  color: white;
+}
+
+.legislators a:hover {
+  color: #C9C5BF;
+ text-decoration: none;
+
+}
+
+.legislators {
+  position: fixed;
+  right: 5vh;
+  padding: 10px;
+  color: white;
+  background-color: #343B36;
+}
+
+.ballot-tiles {
+  left: 30vh
 }

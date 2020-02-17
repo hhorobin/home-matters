@@ -50,7 +50,19 @@ const StateShowContainer = (props) => {
           </figcaption>
         </figure>
       </div>
-      {ballotTiles}
+      <div className="container text-center">
+        <div className="row">
+          <div className="col-6 ballot-tiles text-center">
+          {ballotTiles}
+          </div>
+          <div className="col-2">
+            <div className="card legislators">
+              <p>Passionate about these measures?</p>
+              <a href="#">Contact my Legislators</a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   )
 }

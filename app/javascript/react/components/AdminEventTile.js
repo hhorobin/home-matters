@@ -1,4 +1,4 @@
-import React, { useState} from "react"
+import React from "react"
 
 const AdminEventTile = (props) => {
 const { id, title, description, address, city, state, date, time, ballotId, creatorContact } = props
@@ -6,6 +6,11 @@ const { id, title, description, address, city, state, date, time, ballotId, crea
   const handleEventApproval = () => {
     let eventId = props.id
     props.approveEvent(eventId)
+  }
+
+  const handleEventDecline = () => {
+    let eventId = props.id
+    props.declineEvent(eventId)
   }
   return (
     <div className="container text-center">
@@ -15,6 +20,7 @@ const { id, title, description, address, city, state, date, time, ballotId, crea
         <p id="contact-info">Host contact info: {creatorContact}</p>
       </div>
       <input id="submit" type="submit" value="Approve This Event" onClick={handleEventApproval}/>
+      <input id="decline" type="submit" value="Decline This Event" onClick={handleEventDecline}/>
     </div>
   )
 }

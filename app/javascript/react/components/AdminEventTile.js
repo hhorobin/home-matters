@@ -9,10 +9,10 @@ const { id, title, description, address, city, state, date, time, ballotId, crea
   }
   return (
     <div className="container text-center">
-      <h3 className="col sm-12 text-center event-title">{title}</h3>
+      <h3 className="col sm-12 text-center event-title" id="event-name">{title}</h3>
       <div className="card text-center">
-        <p className="event-details">{description} {address} {city} {state} {date} {time} </p>
-        <p>Host contact info:{creatorContact}</p>
+        <p className="event-details">{description} {address} {city}, {state} {date} {time}</p>
+        <p id="contact-info">Host contact info: {creatorContact}</p>
       </div>
       <input id="submit" type="submit" value="Approve This Event" onClick={handleEventApproval}/>
     </div>

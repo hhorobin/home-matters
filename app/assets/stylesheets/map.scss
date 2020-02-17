@@ -4,8 +4,12 @@
   text-align: center;
 }
 
-.state-tile, .svg_marker, .annotation {
+.state-tile  {
   cursor: pointer;
+}
+
+.svg_marker {
+  fill: white;
 }
 
 .state-tile:hover {

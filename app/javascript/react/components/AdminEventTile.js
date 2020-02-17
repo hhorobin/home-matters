@@ -1,17 +1,19 @@
 import React, { useState} from "react"
 
 const AdminEventTile = (props) => {
-
-const { id, title, description, address, city, state, date, time, ballot_id, creator_id } = props
+const { id, title, description, address, city, state, date, time, ballotId, creatorContact } = props
 
   const handleEventApproval = () => {
     let eventId = props.id
     props.approveEvent(eventId)
   }
   return (
-    <div>
-      <h2>Event:{title}</h2>
-      <p>{description} {address} {city} {state} {date} {time}</p>
+    <div className="container text-center">
+      <h3 className="col sm-12 text-center event-title">{title}</h3>
+      <div className="card text-center">
+        <p className="event-details">{description} {address} {city} {state} {date} {time} </p>
+        <p>Host contact info:{creatorContact}</p>
+      </div>
       <input id="submit" type="submit" value="Approve This Event" onClick={handleEventApproval}/>
     </div>
   )

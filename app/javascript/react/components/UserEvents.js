@@ -35,14 +35,14 @@ const UserEvents = () => {
         date={event.date}
         time={event.time}
         ballotId={event.ballot_id}
-        creatorId={event.creator_id}
+        creatorContact={event.creator_contact}
       />
     )
   })
 
   return (
     <div>
-      <h2>Your Upcoming Events!</h2>
+      <h2 className="text-center">Your Upcoming Events!</h2>
       {userEventTiles}
     </div>
   )

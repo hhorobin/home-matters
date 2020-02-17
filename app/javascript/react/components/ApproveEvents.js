@@ -63,7 +63,7 @@ const ApproveEvents = (props) => {
         date={event.date}
         time={event.time}
         ballotId={event.ballot_id}
-        creatorId={event.creator_id}
+        creatorContact={event.creator_contact}
         responses={event.responses}
         approved={event.approved}
         approveEvent={approveEvent}
@@ -72,7 +72,7 @@ const ApproveEvents = (props) => {
   })
   return(
     <div>
-      <h2>Events To Approve:</h2>
+      <h2 className="text-center">Events To Approve:</h2>
       {adminEventTiles}
     </div>
   )

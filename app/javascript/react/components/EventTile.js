@@ -50,7 +50,7 @@ const EventTile = props => {
     .then(response => response.json())
     .then(response => {
       window.alert(response.message)
-      return body
+      return response
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`))
   }

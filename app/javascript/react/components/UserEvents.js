@@ -26,15 +26,11 @@ const UserEvents = () => {
     return(
       <UserEventTile
         key={event.id}
-        id={event.id}
         title={event.title}
-        description={event.description}
         address={event.address}
         city={event.city}
-        state={event.state}
         date={event.date}
         time={event.time}
-        ballotId={event.ballot_id}
         creatorContact={event.creator_contact}
       />
     )

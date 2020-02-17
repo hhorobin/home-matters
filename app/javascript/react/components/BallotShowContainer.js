@@ -21,6 +21,7 @@ const BallotShowContainer = (props) => {
     time: ""
   })
   const [ errors, setErrors ] = useState("")
+  const [ signedIn, setSignedIn ] = useState("")
 
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -41,6 +42,7 @@ const BallotShowContainer = (props) => {
       let events = response.ballot.events
       let approved = events.filter(event => event.approved === true)
       setEvents(approved)
+      setSignedIn(response.ballot.signed_in)
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }, [])
@@ -151,6 +153,7 @@ const BallotShowContainer = (props) => {
         newEvent={newEvent}
         handleSubmit={handleSubmit}
         errors={errors}
+        signedIn={signedIn}
       />
     </div>
   )

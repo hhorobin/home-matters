@@ -3,10 +3,15 @@ import ErrorList from "./ErrorList"
 import _ from "lodash"
 
 const EventForm = (props) => {
-  const { handleInputChange, handleSubmit, newEvent, errors } = props
+  const { handleInputChange, handleSubmit, newEvent, errors, signedIn } = props
+  let className
+  
+  if(signedIn === false){
+    className = "hidden"
+  }
 
   return(
-    <div>
+    <div className={className}>
       <div className="container post text-center">
         <h3 className="action-call text-center">Are you or your organization hosting an event? Submit the details here and connect with passionate volunteers.</h3>
         <button type="button" className="btn-lg btn-secondary text-center post" data-toggle="modal" data-target="#formModal">

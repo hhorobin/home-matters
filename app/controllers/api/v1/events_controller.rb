@@ -50,6 +50,16 @@ class Api::V1::EventsController < ApplicationController
     end
   end
 
+  def destroy
+    event = Event.find(params["id"])
+    if current_user.admin?
+      event.destroy
+      render json: Event.where(approved: false)
+    else
+      render json: false
+    end
+  end
+
   def event_params
     params.require(:event).permit(:title, :description, :address, :city, :state, :date, :time, :approved)
   end

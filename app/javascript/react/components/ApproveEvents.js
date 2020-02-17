@@ -49,6 +49,33 @@ const ApproveEvents = (props) => {
     .catch(error => console.error(`Error in fetch: ${error.message}`))
   }
 
+  const declineEvent = (eventId) => {
+    fetch(`/api/v1/events/${eventId}`, {
+      credentials: 'same-origin',
+      method: "DELETE",
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+    })
+    .then(response => {
+      if (response.ok) {
+        return response
+      } else {
+        let errorMessage = `${response.status} (${response.statusText})`,
+        error = new Error(errorMessage)
+        throw error
+      }
+    })
+    .then((response) => {
+      return response.json()
+    })
+    .then((response) => {
+      setEvents(response.events)
+    })
+    .catch(error => console.error(`Error in fetch: ${error.message}`))
+  }
+
   const adminEventTiles = events.map((event) => {
 
     return(
@@ -67,9 +94,11 @@ const ApproveEvents = (props) => {
         responses={event.responses}
         approved={event.approved}
         approveEvent={approveEvent}
+        declineEvent={declineEvent}
       />
     )
   })
+  
   return(
     <div>
       <h2 className="text-center">Events To Approve:</h2>

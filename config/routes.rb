@@ -16,11 +16,11 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :states, only: [:index, :show] do
         resources :ballots, only: [:index, :show] do
-          resources :events, only: [:index, :create, :update]
+          resources :events, only: [:index, :create]
         end
       end
 
-      resources :events, only: [:index, :update] do
+      resources :events, only: [:index, :update, :destroy] do
         member do
           post :alert_host
         end

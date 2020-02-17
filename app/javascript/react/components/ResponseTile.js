@@ -9,7 +9,7 @@ const ResponseTile = (props) => {
 
   return(
     <div>
-      <button type="submit" class="btn btn-dark btn-md" onClick={handleResponseClick}> I'm going! </button>
+      <button type="submit" className="btn btn-dark btn-md" onClick={handleResponseClick}> I'm going! </button>
     </div>
   )
 }

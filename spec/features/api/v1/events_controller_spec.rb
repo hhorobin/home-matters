@@ -186,4 +186,33 @@ RSpec.describe Api::V1::EventsController, type: :controller do
       end
     end
   end
+
+  describe "DELETE#destroy" do
+    context "when ad admin declines an event" do
+      let!(:event_to_delete) {{
+        title: "Delete this",
+        description: "It should get deleted",
+        address: "West street",
+        city: "Colorado Springs",
+        state: "CO",
+        date: "February 3",
+        time: "8am" ,
+        ballot_id: first_ballot.id,
+        creator_id: user_1.id,
+      }}
+
+       it "should delete the event" do
+         sign_in admin_user
+
+         post :create, params: { state_id: first_state.id, ballot_id: first_ballot.id, event: event_to_delete, format: :json }
+
+         prev_count = Event.count
+         delete_params = JSON.parse(response.body)["event"]
+         delete :destroy, params: delete_params, format: :json
+         new_count = Event.all.length
+
+         expect(new_count).to eq(prev_count - 1)
+       end
+     end
+   end
 end

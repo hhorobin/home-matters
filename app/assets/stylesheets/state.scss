@@ -60,24 +60,24 @@ figure.snip1104 h2 span {
 
 @media only screen and (max-width: 750px) {
   figure.snip1104 {
-    max-width: 50px;
-    max-height: 20px;
-    width: 100%;
+    width: 40vw;
+    height: 25vw;
+    margin-bottom: 1vh;
+    margin-top: 1vh;
   }
   figure.snip1104 h2 {
-    font-size: 12px;
+    font-size: 14px;
   }
   figure.snip1104 h2 span {
-    font-size: 12px;
+    font-size: 14px;
   }
   .ballot-tiles {
-    min-width: 60vw;
-    max-width: 80vw
+    min-width: 90vw;
   }
   .legislators {
     display:none;
   }
   .ballot-tiles {
-    left: 15vw;
+    left: 0vw;
   }
 }

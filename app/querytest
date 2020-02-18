@@ -1,0 +1,32 @@
+query people($latitude: Float, $longitude: Float)
+{
+  people(latitude: $latitude, longitude: $longitude, first: 100) {
+    edges {
+      node {
+        name
+        image
+        contactDetails {
+          type
+          value
+        }
+        chamber: currentMemberships(classification:["upper", "lower"]) {
+          post {
+            label
+          }
+          organization {
+            name
+            classification
+            parent {
+              name
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+# query is my root operation (bc reading data from server). query is also the default if nothing specified
+# Im finding a person object and passing in the arguments of latitude and longitude
+# to access person object (aka PersonNode), I need to through people via edges
+# node: at this point, Im receiving the node at the end of the edge, which is the PersonNode

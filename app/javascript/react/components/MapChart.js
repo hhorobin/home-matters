@@ -64,6 +64,8 @@ const MapChart = () => {
 
   return (
     <>
+    <div className="row test">
+
     <div className="map">
       <div id="solid-map">
         <ComposableMap projection="geoAlbersUsa">
@@ -115,6 +117,22 @@ const MapChart = () => {
           </Geographies>
         </ComposableMap>
       </div>
+    </div>
+    <div className="banner">
+      <div className="line">
+        <span>Your </span>
+      </div>
+
+      <div className="line">
+        <span>Home</span>
+      </div>
+
+
+
+      <div class="line">
+        <span>Your Vote</span>
+        </div>
+    </div>
     </div>
     </>
   )

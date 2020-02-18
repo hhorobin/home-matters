@@ -9,6 +9,7 @@ import {
   Annotation
 } from "react-simple-maps"
 import allStates from "./allstates.json"
+// import LocationFinder from "./LocationFinder"
 
 const geoUrl = "https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json"
 
@@ -63,6 +64,7 @@ const MapChart = () => {
     }
 
   return (
+    <>
     <div className="map">
       <div id="solid-map">
         <ComposableMap projection="geoAlbersUsa">
@@ -114,7 +116,11 @@ const MapChart = () => {
           </Geographies>
         </ComposableMap>
       </div>
+
     </div>
+    <LocationFinder
+    />
+    </>
   )
 }
 

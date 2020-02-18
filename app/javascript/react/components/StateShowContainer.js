@@ -6,6 +6,9 @@ import BallotTile from './BallotTile'
 const StateShowContainer = (props) => {
   const [ stateBallots, setStateBallots ] = useState([])
   const [ stateName, setStateName ] = useState("")
+  const [ address, setAddress ] = useState("")
+  const [ coords, setCoords ] = useState({
+  })
 
   let stateId = props.match.params.id
 
@@ -41,6 +44,43 @@ const StateShowContainer = (props) => {
     )
   })
 
+  const searchAddress = (address) => {
+      fetch(`/api/v1/places`, {
+        credentials: 'same-origin',
+        method: "POST",
+        body: JSON.stringify(address),
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        }
+      })
+      .then(response => {
+        if (response.ok) {
+          return response
+        } else {
+          let errorMessage = `${response.status} (${response.statusText})`,
+          error = new Error(errorMessage)
+          throw error
+        }
+      })
+      .then(response => response.json())
+      .then(response => {
+        setCoords(response)
+      })
+      .catch(error => console.error(`Error in fetch: ${error.message}`));
+    }
+
+  const handleInputChange = (event) => {
+   setAddress(event.target.value)
+
+  }
+
+  const handleSubmit = () => {
+    event.preventDefault()
+    searchAddress(address)
+    setAddress("")
+  }
+  console.log(coords)
   return (
     <div className="container text-center">
       <div className="row">
@@ -58,7 +98,12 @@ const StateShowContainer = (props) => {
           <div className="col-2">
             <div className="card legislators">
               <p>Passionate about these measures?</p>
-              <a href="#">Contact my Legislators</a>
+              <a data-toggle="collapse" href="#collapseContact" aria-expanded="false" aria-controls="collapseContact">Contact my Legislators</a>
+              <div className="collapse" id="collapseContact">
+                <form className="form-group"  onSubmit={handleSubmit}>
+                  <input className="form-control" id="address" type="text" placeholder="Your address" onChange={handleInputChange} value={address}></input>
+                </form>
+              </div>
             </div>
           </div>
         </div>

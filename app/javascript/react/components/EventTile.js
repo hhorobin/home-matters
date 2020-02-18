@@ -58,7 +58,7 @@ const EventTile = props => {
   return (
     <div>
       <div className="row justify-content-center">
-        <div className="col-6 text-center event">
+        <div className="col-md-6 text-center event">
           <h3 className="event-title">{title}</h3>
           <p>{description}</p>
           <p>{address} {city}, {state}</p>

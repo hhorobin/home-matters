@@ -22,3 +22,13 @@ body {
 .landing {
   padding-top: 15px;
 }
+
+@media only screen and (max-width: 750px) {
+  .navbar-brand>img {
+    height: 50px;
+    width: 50px;
+  }
+  .landing {
+    font-size: 18px;
+  }
+}

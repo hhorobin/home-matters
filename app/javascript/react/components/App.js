@@ -7,7 +7,6 @@ import BallotShowContainer from "./BallotShowContainer"
 import ApproveEvents from "./ApproveEvents"
 import UserEvents from "./UserEvents"
 
-
 export const App = (props) => {
   return (
     <BrowserRouter>

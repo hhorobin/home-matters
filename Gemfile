@@ -57,3 +57,4 @@ gem "active_model_serializers"
 gem 'bootstrap', '~> 4.0.0'
 gem 'phonelib'
 gem 'twilio-ruby'
+gem 'geocoder'

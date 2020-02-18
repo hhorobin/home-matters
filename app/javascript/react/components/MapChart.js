@@ -63,6 +63,7 @@ const MapChart = () => {
     }
 
   return (
+    <>
     <div className="map">
       <div id="solid-map">
         <ComposableMap projection="geoAlbersUsa">
@@ -115,6 +116,7 @@ const MapChart = () => {
         </ComposableMap>
       </div>
     </div>
+    </>
   )
 }
 

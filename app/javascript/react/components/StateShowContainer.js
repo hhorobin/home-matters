@@ -2,13 +2,13 @@ import React, { useState, useEffect } from "react"
 import { Redirect } from "react-router-dom"
 import _ from "lodash"
 import BallotTile from './BallotTile'
+import LegislatorTile from './LegislatorTile'
 
 const StateShowContainer = (props) => {
   const [ stateBallots, setStateBallots ] = useState([])
   const [ stateName, setStateName ] = useState("")
   const [ address, setAddress ] = useState("")
-  const [ coords, setCoords ] = useState({
-  })
+  const [ legislators, setLegislators ] = useState([])
 
   let stateId = props.match.params.id
 
@@ -65,14 +65,13 @@ const StateShowContainer = (props) => {
       })
       .then(response => response.json())
       .then(response => {
-        setCoords(response)
+        setLegislators(response)
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`));
     }
 
   const handleInputChange = (event) => {
    setAddress(event.target.value)
-
   }
 
   const handleSubmit = () => {
@@ -80,35 +79,64 @@ const StateShowContainer = (props) => {
     searchAddress(address)
     setAddress("")
   }
-  console.log(coords)
+
+  const legislatorTiles = legislators.map((legislator) => {
+    return(
+      <LegislatorTile
+        key={legislator.leg_id}
+        name={legislator.full_name}
+        email={legislator.email}
+        photo={legislator.photo_url}
+        party={legislator.party}
+        district={legislator.district}
+      />
+    )
+  })
+
   return (
-    <div className="container text-center">
-      <div className="row">
+    <>
+      <div className="row text-center">
         <figure className="snip1104">
           <figcaption>
             <h2> Referendums in <span>{stateName}</span> </h2>
           </figcaption>
         </figure>
       </div>
+
       <div className="container text-center">
         <div className="row">
           <div className="col-6 ballot-tiles text-center">
           {ballotTiles}
           </div>
-          <div className="col-2">
             <div className="card legislators">
               <p>Passionate about these measures?</p>
               <a data-toggle="collapse" href="#collapseContact" aria-expanded="false" aria-controls="collapseContact">Contact my Legislators</a>
               <div className="collapse" id="collapseContact">
-                <form className="form-group"  onSubmit={handleSubmit}>
-                  <input className="form-control" id="address" type="text" placeholder="Your address" onChange={handleInputChange} value={address}></input>
+                <form className="form-group">
+                  <input className="form-control text-center" id="address" type="text" placeholder="Street, City, State" onChange={handleInputChange} value={address}></input>
                 </form>
-              </div>
+                <input className="btn btn-light btn-sm" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap" onClick={handleSubmit} value="Search" readOnly={true}/>
             </div>
           </div>
         </div>
       </div>
-    </div>
+
+      <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div className="modal-dialog" role="document">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title-center" id="exampleModalLongTitle">Your Representatives:</h5>
+                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+            <div className="modal-body">
+              {legislatorTiles}
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
   )
 }
 

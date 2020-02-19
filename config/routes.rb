@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'static_pages#index'
 
-  get "/states/:state_id/ballots/:id/new", to: 'static_pages#create' #need?
+  get "/states/:state_id/ballots/:id/new", to: 'static_pages#create'
   get "/events/edit", to: 'static_pages#update'
   get "/events", to: "static_pages#index"
   get "/", to: 'static_pages#index'

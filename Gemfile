@@ -54,7 +54,7 @@ gem 'devise'
 gem 'webpacker', '~> 3.3'
 gem 'nokogiri'
 gem "active_model_serializers"
-gem 'bootstrap', '~> 4.0.0'
+gem 'bootstrap', '~> 4.3.1'
 gem 'phonelib'
 gem 'twilio-ruby'
 gem 'geocoder'

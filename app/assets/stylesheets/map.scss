@@ -1,7 +1,6 @@
 .map {
-  width: 70%;
+  width: 80%;
   margin: 0 auto;
-  text-align: center;
 }
 
 .state-tile  {
@@ -16,7 +15,16 @@
   fill: #7D7C50;
 }
 
+.quote-box {
+  border: solid black 2px;
+  background-color: #976B6E;
+  width: 200px;
+}
+
 @media only screen and (max-width: 750px) {
+  .banner {
+    display: none
+  }
   .map {
     width: 100%;
   }

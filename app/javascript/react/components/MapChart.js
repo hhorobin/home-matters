@@ -63,60 +63,60 @@ const MapChart = () => {
     }
 
   return (
-    <>
-    <div className="map">
-      <div id="solid-map">
-        <ComposableMap projection="geoAlbersUsa">
-          <Geographies geography={geoUrl}>
-            {({ geographies }) => (
-              <>
-                {geographies.map(geo => (
-                  <Geography
-                    key={geo.rsmKey}
-                    stroke="black"
-                    geography={geo}
-                    id={geo.properties.name}
-                    onClick={handleClick}
-                    fill="#365055"
-                    className="state-tile"
-                  />
-                ))}
-                {geographies.map(geo => {
-                  const centroid = geoCentroid(geo)
-                  const cur = allStates.find(s => s.val === geo.id)
-                  return (
-                    <g key={geo.rsmKey + "-name"}>
-                      {cur &&
-                        centroid[0] > -160 &&
-                        centroid[0] < -67 &&
-                        (Object.keys(offsets).indexOf(cur.id) === -1 ? (
-                          <Marker className="svg_marker" coordinates={centroid}>
-                            <text y="2" fontWeight="bold" fontSize={12} textAnchor="middle" >
-                            {cur.id}
-                            </text>
-                          </Marker>
-                        ) : (
-                          <Annotation
-                            className="annotation"
-                            subject={centroid}
-                            dx={offsets[cur.id][0]}
-                            dy={offsets[cur.id][1]}
-                          >
-                            <text className="state-text" x={4} fontWeight="bold" fontSize={12} alignmentBaseline="middle" >
+    <div className="row">
+      <div className="map">
+        <div id="solid-map">
+          <ComposableMap projection="geoAlbersUsa">
+            <Geographies geography={geoUrl}>
+              {({ geographies }) => (
+                <>
+                  {geographies.map(geo => (
+                    <Geography
+                      key={geo.rsmKey}
+                      stroke="black"
+                      geography={geo}
+                      id={geo.properties.name}
+                      onClick={handleClick}
+                      fill="#365055"
+                      className="state-tile"
+                    />
+                  ))}
+                  {geographies.map(geo => {
+                    const centroid = geoCentroid(geo)
+                    const cur = allStates.find(s => s.val === geo.id)
+                    return (
+                      <g key={geo.rsmKey + "-name"}>
+                        {cur &&
+                          centroid[0] > -160 &&
+                          centroid[0] < -67 &&
+                          (Object.keys(offsets).indexOf(cur.id) === -1 ? (
+                            <Marker className="svg_marker" coordinates={centroid}>
+                              <text y="2" fontWeight="bold" fontSize={12} textAnchor="middle" >
                               {cur.id}
-                            </text>
-                          </Annotation>
-                        ))}
-                    </g>
-                  )
-                })}
-              </>
-            )}
-          </Geographies>
-        </ComposableMap>
+                              </text>
+                            </Marker>
+                          ) : (
+                            <Annotation
+                              className="annotation"
+                              subject={centroid}
+                              dx={offsets[cur.id][0]}
+                              dy={offsets[cur.id][1]}
+                            >
+                              <text className="state-text" x={4} fontWeight="bold" fontSize={12} alignmentBaseline="middle" >
+                                {cur.id}
+                              </text>
+                            </Annotation>
+                          ))}
+                      </g>
+                    )
+                  })}
+                </>
+              )}
+            </Geographies>
+          </ComposableMap>
+        </div>
       </div>
     </div>
-    </>
   )
 }
 

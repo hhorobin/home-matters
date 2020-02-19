@@ -1,14 +1,16 @@
-body {
+.body {
+  background-color: #F0F5F8;
   font-family: 'Zilla Slab', serif;
 }
 
-.body {
-  background-color: #F0F5F8;
+.user {
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .navbar-brand>img {
-  height: 90px;
-  width: 90px;
+  height: 70px;
+  width: 70px;
 }
 
 .hidden {
@@ -19,8 +21,75 @@ body {
   background-color: #C9C5BF;
 }
 
+.welcome {
+  display: none;
+}
+
 .landing {
   padding-top: 15px;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 40px;
+}
+
+.text {
+  position: absolute;
+  font-family: 'Teko', sans-serif;
+  left: 2em;
+  top: 12em;
+  width: 250px;
+  text-transform: uppercase;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+
+  h1 {
+    font-size: 4em;
+    line-height: 0;
+    color: white;
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin: 0;
+  }
+
+  span {
+    color: black;
+    font-size: 4.5em;
+    font-weight: 600;
+    top: 8px;
+    position: relative;
+    margin: 0 0.1em;
+  }
+
+  p {
+    letter-spacing: 1px;
+    font-size: 1.5em;
+    font-weight: 800;
+    line-height: 1.5em;
+    margin-top: 2em;
+    width: 15vw;
+  }
+}
+
+.quote {
+  font-family: 'Zilla Slab', serif;
+  letter-spacing: 1px;
+  font-size: .8em;
+  font-weight: 700;
+  line-height: 1.5em;
+  margin-top: 1em;
+  position: absolute;
+  color: white
+}
+
+.quote span {
+  font-style: italic;
+}
+
+.bg {
+  border-left: solid 20vw #976B6E;
+  border-bottom: solid 8vw black;
+  bottom: 0;
 }
 
 @media only screen and (max-width: 750px) {
@@ -30,5 +99,22 @@ body {
   }
   .landing {
     font-size: 18px;
+  }
+  .text {
+    display: none;
+  }
+  .quote {
+    display: none;
+  }
+  .welcome {
+    display: inline-block;
+    text-align: center;
+    margin-top: 3vh;
+  }
+  .bg {
+    border-left: solid 20vw #976B6E;
+    border-bottom: solid 8vw black;
+    bottom: 0;
+    height: 50vh;
   }
 }

@@ -21,7 +21,6 @@ const EventForm = (props) => {
       <div className="modal fade bd-modal-lg" id="formModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div className="modal-dialog modal-lg" role="document">
           <div className="modal-content">
-
             <div className="modal-header">
               <h5 className="modal-title">Tell us about your event.</h5>
               <button type="button" className="close" data-dismiss="modal" aria-label="Close">

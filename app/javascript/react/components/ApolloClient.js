@@ -9,7 +9,7 @@ const client = new ApolloClient({
   request: operation => {
     operation.setContext({
       headers: {
-        'X-API-KEY': 'a9408f37-20bd-41be-98ee-4c5b8e0d8079'
+        'X-API-KEY': ''
       }
     })
   }

@@ -9,6 +9,7 @@ const StateShowContainer = (props) => {
   const [ stateName, setStateName ] = useState("")
   const [ address, setAddress ] = useState("")
   const [ legislators, setLegislators ] = useState([])
+  const [ loading, setLoading ] = useState(false)
 
   let stateId = props.match.params.id
 
@@ -66,6 +67,7 @@ const StateShowContainer = (props) => {
       .then(response => response.json())
       .then(response => {
         setLegislators(response)
+        setLoading(false)
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`));
     }
@@ -78,6 +80,7 @@ const StateShowContainer = (props) => {
     event.preventDefault()
     searchAddress(address)
     setAddress("")
+    setLoading(true)
   }
 
   const legislatorTiles = legislators.map((legislator) => {
@@ -102,7 +105,6 @@ const StateShowContainer = (props) => {
           </figcaption>
         </figure>
       </div>
-
       <div className="container text-center">
         <div className="row">
           <div className="col-6 ballot-tiles text-center">
@@ -125,6 +127,10 @@ const StateShowContainer = (props) => {
         <div className="modal-dialog" role="document">
           <div className="modal-content">
             <div className="modal-header">
+            {loading && <div class="spinner">
+            <div class="spinner-a"></div>
+            <div class="spinner-b"></div>
+            </div>}
               <h5 className="modal-title-center" id="exampleModalLongTitle">Your Representatives:</h5>
                 <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>

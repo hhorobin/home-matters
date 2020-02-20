@@ -67,6 +67,7 @@ const EventTile = props => {
           <ResponseTile
           sendHostText={sendHostText}
           addResponse={addResponse}
+          responses={responses}
           />
           <p className="attendees">Going: {responses.length}</p>
         </div>

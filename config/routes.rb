@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get "/events", to: "static_pages#index"
   get "/", to: 'static_pages#index'
   get "/states", to: 'static_pages#index'
+  get "/ballots", to: 'static_pages#index'
   get "/states/:id", to: 'static_pages#index'
   get "/states/:state_id/ballots/:id", to: 'static_pages#index'
   post '/events/:event_id/alert_host', to: 'static_pages#index'
@@ -20,6 +21,12 @@ Rails.application.routes.draw do
         end
       end
       resources :places, only: [:create]
+      resources :ballots, only: [:index] do
+        member do
+          get :subjects
+        end
+      end
+      post "ballots/search", to: "ballots#search"
       resources :events, only: [:index, :update, :destroy] do
         member do
           post :alert_host

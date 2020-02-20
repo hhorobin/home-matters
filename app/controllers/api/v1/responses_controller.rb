@@ -5,7 +5,6 @@ class Api::V1::ResponsesController < ApplicationController
     responses = Response.where(event: params[:event_id])
     if user_signed_in?
       existing = responses.where(user: current_user)
-
       if existing == []
         Response.create(
           event: event,

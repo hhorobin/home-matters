@@ -92,6 +92,13 @@
   bottom: 0;
 }
 
+.no-ballots{
+  width:100%;
+  margin: 0 auto;
+  background-color: white;
+  border: solid black 1px;
+}
+
 @media only screen and (max-width: 750px) {
   .navbar-brand>img {
     height: 50px;

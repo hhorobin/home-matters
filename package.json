@@ -18,13 +18,15 @@
     "@babel/runtime": "^7.6.2",
     "@rails/webpacker": "3.5",
     "babel-loader": "^8.0.6",
+    "d3": "^5.15.0",
     "prop-types": "~15.6.0",
     "react": "~16.8.0",
     "react-dom": "~16.8.0",
     "react-router-dom": "5.0.0",
     "react-simple-maps": "^1.0.0-beta.0",
     "redbox-react": "1.6.0",
-    "semantic-ui-react": "^0.88.2"
+    "semantic-ui-react": "^0.88.2",
+    "resize-observer-polyfill": "^1.5.1"
   },
   "devDependencies": {
     "babel-jest": "^24.9.0",
@@ -52,7 +54,6 @@
     ],
     "setupFiles": [
       "./spec/javascript/support/enzyme.js"
-    ],
-    "testURL": "http://localhost/"
+    ]
   }
 }

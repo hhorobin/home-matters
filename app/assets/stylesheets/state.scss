@@ -10,16 +10,16 @@
 figure.snip1104 {
   font-family: 'Raleway', Arial, sans-serif;
   position: relative;
-  margin-top: 90px;
-  margin-bottom: 12vh;
-  min-width: 220px;
-  max-width: 450px;
-  max-height: 220px;
+  margin-top: 3vh;
+  min-width: 50vw;
+  max-width: 20vw;
+  min-height: 30vh;
+  max-height: 30vh;
   width: 100%;
   color: #ffffff;
 }
 
-figure.snip1104 h2 {
+figure.snip1104 h1 {
   position: absolute;
   left: 40px;
   right: 40px;
@@ -33,7 +33,7 @@ figure.snip1104 h2 {
   border: solid black 3px;
 }
 
-figure.snip1104 h2 span {
+figure.snip1104 h1 span {
   font-weight: 800;
 }
 
@@ -58,21 +58,30 @@ figure.snip1104 h2 span {
   left: 30vh
 }
 
+.results {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.sticky {
+  position: fixed;
+}
+
 @media only screen and (max-width: 750px) {
   figure.snip1104 {
-    width: 40vw;
+    min-width: 90vw;
     height: 25vw;
     margin-bottom: 1vh;
     margin-top: 1vh;
   }
-  figure.snip1104 h2 {
+  figure.snip1104 h1 {
     font-size: 14px;
   }
-  figure.snip1104 h2 span {
+  figure.snip1104 h1 span {
     font-size: 14px;
   }
   .ballot-tiles {
-    min-width: 90vw;
+    min-width: 80vw;
   }
   .legislators {
     display:none;
@@ -80,103 +89,23 @@ figure.snip1104 h2 span {
   .ballot-tiles {
     left: 0vw;
   }
-}
-.results {
-  width: 80%;
-  margin: 0 auto;
-}
-
-/* Editable */
-$spinner-radius: .5em;
-$bgColor: #009DDC;
-
-/* Probably shouldn't edit, but go crazy. */
-$iteration-duration: 400ms;
-$cycle-duration: 1000ms;
-$spinner-width: $spinner-radius * 4;
-
-/* Sassery */
-.spinner {
-  position: absolute;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%) rotate(90deg);
-  width: $spinner-width;
-}
-
-.spinner, .spinner div {
-  transform-origin: 50% 50%;
-}
-
-.spinner div {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%;
-}
-
-.spinner:before,
-.spinner:after,
-.spinner div:before,
-.spinner div:after {
-  animation-duration: $cycle-duration;
-  animation-iteration-count: infinite;
-  content: "";
-  background: $bgColor;
-  border-radius: 100%;
-  width: $spinner-radius; height: $spinner-radius;
-  position: absolute;
-}
-
-.spinner:before,
-.spinner div:before {
-  animation-name: orbBounceBefore;
-  top: -$spinner-radius *.5; left: -$spinner-radius *.5;
-}
-
-.spinner:after,
-.spinner div:after {
-  animation-name: orbBounceAfter;
-  top: -$spinner-radius *.5; right: -$spinner-radius *.5;
-}
-
-.spinner-a {
-  transform: rotate(60deg) translateY(0);
-}
-
-.spinner-b {
-  transform: rotate(120deg) translateY(0);
-}
-
-$delay-unit: $cycle-duration/6;
-
-$startTime: 100% - percentage($iteration-duration/$cycle-duration);
-$halfTime: 100% - percentage(($iteration-duration*.5)/$cycle-duration);
-
-@keyframes orbBounceBefore {
-  #{$startTime} {
-    transform: translateX(0);
-    animation-timing-function: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+  .bg {
+    border-left: solid 2vw #F0F5F8;
+    border-bottom: solid 10vw #F0F5F8;
   }
-  #{$halfTime} {
-    animation-timing-function: cubic-bezier(0,1.11,.7,1.43);
-    transform: translateX(-100%);
+  .search {
+    font-family: 'Zilla Slab', serif;
+    font-size: 0.5em;
+    line-height: 0.5em;
+    margin-top: 1em;
+    position: absolute;
+    color: black;
+    width: 100%;
+    margin: 0 auto;
   }
-  100% { transform: translateX(0);}
+  .search-bar {
+    position: absolute;
+    width: 100%;
+    margin: 0 auto;
+  }
 }
-
-@keyframes orbBounceAfter {
-  #{$startTime} {
-    animation-timing-function:cubic-bezier(0.55, 0.085, 0.68, 0.53);
-    transform: translateX(0);
-  }
-  #{$halfTime} {
-    animation-timing-function: cubic-bezier(0,1.11,.7,1.43);
-    transform: translateX(100%);
-  }
-  100% { transform: translateX(0);}
-}
-
-.spinner-a:before { animation-delay: $delay-unit; }
-.spinner-b:before { animation-delay: $delay-unit * 2; }
-.spinner:after { animation-delay: $delay-unit * 3; }
-.spinner-a:after { animation-delay: $delay-unit * 4; }
-.spinner-b:after { animation-delay: $delay-unit * 5; }

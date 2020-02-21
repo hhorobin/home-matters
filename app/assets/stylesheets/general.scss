@@ -9,8 +9,8 @@
 }
 
 .navbar-brand>img {
-  height: 70px;
-  width: 70px;
+  height: 90px;
+  width: 90px;
 }
 
 .hidden {
@@ -71,19 +71,17 @@
   }
 }
 
-.quote {
+.search {
   font-family: 'Zilla Slab', serif;
   letter-spacing: 1px;
-  font-size: 1em;
+  font-size: 1.4em;
   font-weight: 700;
   line-height: 1.5em;
   margin-top: 1em;
   position: absolute;
-  color: white
-}
-
-.quote span {
-  font-style: italic;
+  color: white;
+  width: 100%;
+  margin: 0 auto;
 }
 
 .bg {

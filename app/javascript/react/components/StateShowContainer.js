@@ -98,10 +98,14 @@ const StateShowContainer = (props) => {
 
   return (
     <>
+    <div className="bg">
+    <div className="text sticky">
+    <h1>Home</h1><span>✓</span><h1>Matters</h1>
+    </div>
       <div className="row text-center">
         <figure className="snip1104">
           <figcaption>
-            <h2> Referendums in <span>{stateName}</span> </h2>
+            <h1> Referendums in <br/> <span>{stateName}</span> </h1>
           </figcaption>
         </figure>
       </div>
@@ -112,7 +116,7 @@ const StateShowContainer = (props) => {
           </div>
             <div className="card legislators">
               <p>Passionate about these measures?</p>
-              <a data-toggle="collapse" href="#collapseContact" aria-expanded="false" aria-controls="collapseContact">Contact my Legislators</a>
+              <a data-toggle="collapse" href="#collapseContact" aria-expanded="false" aria-controls="collapseContact">Contact My Legislators</a>
               <div className="collapse" id="collapseContact">
                 <form className="form-group">
                   <input className="form-control text-center" id="address" type="text" placeholder="Street, City, State" onChange={handleInputChange} value={address}></input>
@@ -141,6 +145,7 @@ const StateShowContainer = (props) => {
             </div>
           </div>
         </div>
+      </div>
       </div>
     </>
   )

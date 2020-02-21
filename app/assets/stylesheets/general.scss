@@ -1,6 +1,11 @@
 .body {
   background-color: #F0F5F8;
   font-family: 'Zilla Slab', serif;
+  height: 100vh;
+}
+
+.app {
+  height: 100vh;
 }
 
 .user {
@@ -9,8 +14,8 @@
 }
 
 .navbar-brand>img {
-  height: 70px;
-  width: 70px;
+  height: 90px;
+  width: 90px;
 }
 
 .hidden {
@@ -71,25 +76,22 @@
   }
 }
 
-.quote {
+.search {
   font-family: 'Zilla Slab', serif;
   letter-spacing: 1px;
-  font-size: 1em;
+  font-size: 1.4em;
   font-weight: 700;
   line-height: 1.5em;
   margin-top: 1em;
   position: absolute;
-  color: white
-}
-
-.quote span {
-  font-style: italic;
+  color: white;
+  width: 100%;
+  margin: 0 auto;
 }
 
 .bg {
   border-left: solid 20vw #976B6E;
   border-bottom: solid 10vw black;
-  bottom: 0;
 }
 
 .no-ballots{
@@ -99,6 +101,11 @@
   border: solid black 1px;
 }
 
+.vote-pic {
+  height: 11vw;
+  width: 11vw;
+  margin-bottom: 30vh;
+}
 @media only screen and (max-width: 750px) {
   .navbar-brand>img {
     height: 50px;

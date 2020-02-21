@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
 import MapChart from "./MapChart"
 import BallotSearch from "./BallotSearch"
-import BallotTile from "./BallotTile"
+import BallotTile from "./tiles/BallotTile.js"
+import LearnMore from "./LearnMore"
 
 const StatesIndexContainer = props => {
   const [ ballots, setBallots ] = useState([])
@@ -31,24 +32,6 @@ const StatesIndexContainer = props => {
       searchString: ""
     })
   }
-
-  useEffect(() => {
-    fetch("/api/v1/ballots/subjects")
-    .then(response => {
-      if (response.ok) {
-        return response
-      } else {
-        let errorMessage = `${response.status} (${response.statusText})`,
-        error = new Error(errorMessage)
-        throw error
-      }
-    })
-    .then(response => response.json())
-    .then(response => {
-      setOptions(response)
-    })
-    .catch(error => console.error(`Error in fetch: ${error.message}`))
-  },[])
 
   const searchBallots = (formPayload) => {
     fetch(`/api/v1/ballots/search.json`, {
@@ -97,16 +80,20 @@ const StatesIndexContainer = props => {
 
   return (
     <div>
-      <p className="welcome">Choose your state to learn about upcoming ballot referendums</p>
+      <p className="welcome shake-hard">Choose your state to learn about upcoming ballot referendums</p>
       <div className={className}>
+        <div className="text-right">
+        <Link to="/learn">
+          Wait, what's a referendum?
+        </Link>
+        </div>
         {noBallots &&
         <div class="alert w-50 no-ballots text-center" role="alert">
           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
           {noBallots}
-        </div>}
-
+          </div>}
         <div className="map">
           <MapChart
           />
@@ -115,13 +102,16 @@ const StatesIndexContainer = props => {
           <h1>Home</h1><span>✓</span><h1>Matters</h1>
           <p>Choose your state to learn about upcoming ballot referendums</p>
         </div>
-        <p className="quote"> "A whole people with the ballot in their hands possess the most conclusive and unlimited power ever entrusted to humanity"<span>-Herbert Hoover</span></p>
+        <div className="row search text-center">
+          <div className="col-sm-6">
+          <BallotSearch
+            handleInputChange={handleInputChange}
+            handleSubmit={handleSubmit}
+            query={query}
+          />
+          </div>
+        </div>
       </div>
-      <BallotSearch
-        handleInputChange={handleInputChange}
-        handleSubmit={handleSubmit}
-        query={query}
-      />
       <div className="text-center">
         {searchLinks}
       </div>
@@ -129,4 +119,4 @@ const StatesIndexContainer = props => {
   )
 }
 
-export default StatesIndexContainer;
+export default StatesIndexContainer

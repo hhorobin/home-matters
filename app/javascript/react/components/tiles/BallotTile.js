@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from "react-router-dom"
-import BallotShowContainer from './BallotShowContainer'
+import BallotShowContainer from '../BallotShowContainer.js'
 
 const BallotTile = (props) => {
   const { id, name, stateId, subject, description } = props

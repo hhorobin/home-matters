@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import UserEventTile from "./UserEventTile"
+import UserEventTile from "./tiles/UserEventTile.js"
 
 const UserEvents = () => {
   const [ events, setEvents ] = useState([])

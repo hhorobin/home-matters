@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react"
 import { Redirect } from "react-router-dom"
 import _ from "lodash"
-import BallotTile from './BallotTile'
-import LegislatorTile from './LegislatorTile'
+import BallotTile from './tiles/BallotTile'
+import LegislatorTile from './tiles/LegislatorTile'
+import VotePic from '../../../assets/images/VotePic.png'
 
 const StateShowContainer = (props) => {
   const [ stateBallots, setStateBallots ] = useState([])
@@ -10,6 +11,7 @@ const StateShowContainer = (props) => {
   const [ address, setAddress ] = useState("")
   const [ legislators, setLegislators ] = useState([])
   const [ loading, setLoading ] = useState(false)
+  const [ noRepsFound, setNoRepsFound ] = useState(false)
 
   let stateId = props.match.params.id
 
@@ -66,8 +68,13 @@ const StateShowContainer = (props) => {
       })
       .then(response => response.json())
       .then(response => {
-        setLegislators(response)
+        if (response) {
+          setLegislators(response)
+          setLoading(false)
+        }
+        else
         setLoading(false)
+        noReps()
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`));
     }
@@ -82,6 +89,10 @@ const StateShowContainer = (props) => {
     setAddress("")
     setLoading(true)
   }
+  const noReps = () => {
+    setNoRepsFound("We couldn't find any representatives for that address.")
+  }
+
 
   const legislatorTiles = legislators.map((legislator) => {
     return(
@@ -98,10 +109,15 @@ const StateShowContainer = (props) => {
 
   return (
     <>
+    <div className="bg">
+    <div className="text sticky">
+      <h1>Home</h1><span>✓</span><h1>Matters</h1>
+      <img className="vote-pic" src={VotePic}/>
+    </div>
       <div className="row text-center">
         <figure className="snip1104">
           <figcaption>
-            <h2> Referendums in <span>{stateName}</span> </h2>
+            <h1> Referendums in <br/> <span>{stateName}</span> </h1>
           </figcaption>
         </figure>
       </div>
@@ -112,7 +128,7 @@ const StateShowContainer = (props) => {
           </div>
             <div className="card legislators">
               <p>Passionate about these measures?</p>
-              <a data-toggle="collapse" href="#collapseContact" aria-expanded="false" aria-controls="collapseContact">Contact my Legislators</a>
+              <a data-toggle="collapse" href="#collapseContact" aria-expanded="false" aria-controls="collapseContact">Contact My Legislators</a>
               <div className="collapse" id="collapseContact">
                 <form className="form-group">
                   <input className="form-control text-center" id="address" type="text" placeholder="Street, City, State" onChange={handleInputChange} value={address}></input>
@@ -128,8 +144,8 @@ const StateShowContainer = (props) => {
           <div className="modal-content">
             <div className="modal-header">
             {loading && <div class="spinner">
-            <div class="spinner-a"></div>
-            <div class="spinner-b"></div>
+            <div className="spinner-a"></div>
+            <div className="spinner-b"></div>
             </div>}
               <h5 className="modal-title-center" id="exampleModalLongTitle">Your Representatives:</h5>
                 <button type="button" className="close" data-dismiss="modal" aria-label="Close">
@@ -138,9 +154,14 @@ const StateShowContainer = (props) => {
               </div>
             <div className="modal-body">
               {legislatorTiles}
+              {noRepsFound &&
+              <h6>
+                {noRepsFound}
+                </h6>}
             </div>
           </div>
         </div>
+      </div>
       </div>
     </>
   )

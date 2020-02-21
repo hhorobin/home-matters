@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get "/states", to: 'static_pages#index'
   get "/ballots", to: 'static_pages#index'
   get "/states/:id", to: 'static_pages#index'
+  get "/learn", to: 'static_pages#index'
   get "/states/:state_id/ballots/:id", to: 'static_pages#index'
   post '/events/:event_id/alert_host', to: 'static_pages#index'
 

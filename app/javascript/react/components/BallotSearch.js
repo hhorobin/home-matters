@@ -4,8 +4,8 @@ const BallotSearch = (props) => {
   const { handleInputChange, handleSubmit, query } = props
 
   return (
-    <form onSubmit={handleSubmit} className="form-group text-center">
-      <h6>Search for ballots by topic</h6>
+    <form onSubmit={handleSubmit} className="row mt-3 search-bar">
+      <h4 className="mr-2 mt-1">Search for ballots by topic</h4>
       <input
         type="text"
         value={query.searchString}
@@ -13,7 +13,7 @@ const BallotSearch = (props) => {
         >
       </input>
       <div>
-        <input className="button" type="submit" value="Search" />
+        <input className="btn-lg btn-light ml-3" type="submit" value="Search" />
       </div>
     </form>
   )

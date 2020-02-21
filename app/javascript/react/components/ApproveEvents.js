@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import AdminEventTile from "./AdminEventTile"
+import AdminEventTile from "./tiles/AdminEventTile.js"
 
 const ApproveEvents = (props) => {
   const [ events, setEvents ] = useState([])
@@ -98,7 +98,7 @@ const ApproveEvents = (props) => {
       />
     )
   })
-  
+
   return(
     <div>
       <h2 className="text-center">Events To Approve:</h2>

@@ -11,6 +11,7 @@ const StateShowContainer = (props) => {
   const [ address, setAddress ] = useState("")
   const [ legislators, setLegislators ] = useState([])
   const [ loading, setLoading ] = useState(false)
+  const [ noRepsFound, setNoRepsFound ] = useState(false)
 
   let stateId = props.match.params.id
 
@@ -67,8 +68,13 @@ const StateShowContainer = (props) => {
       })
       .then(response => response.json())
       .then(response => {
-        setLegislators(response)
+        if (response) {
+          setLegislators(response)
+          setLoading(false)
+        }
+        else
         setLoading(false)
+        noReps()
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`));
     }
@@ -83,6 +89,10 @@ const StateShowContainer = (props) => {
     setAddress("")
     setLoading(true)
   }
+  const noReps = () => {
+    setNoRepsFound("We couldn't find any representatives for that address.")
+  }
+
 
   const legislatorTiles = legislators.map((legislator) => {
     return(
@@ -134,8 +144,8 @@ const StateShowContainer = (props) => {
           <div className="modal-content">
             <div className="modal-header">
             {loading && <div class="spinner">
-            <div class="spinner-a"></div>
-            <div class="spinner-b"></div>
+            <div className="spinner-a"></div>
+            <div className="spinner-b"></div>
             </div>}
               <h5 className="modal-title-center" id="exampleModalLongTitle">Your Representatives:</h5>
                 <button type="button" className="close" data-dismiss="modal" aria-label="Close">
@@ -144,6 +154,10 @@ const StateShowContainer = (props) => {
               </div>
             <div className="modal-body">
               {legislatorTiles}
+              {noRepsFound &&
+              <h6>
+                {noRepsFound}
+                </h6>}
             </div>
           </div>
         </div>

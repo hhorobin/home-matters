@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
 import MapChart from "./MapChart"
 import BallotSearch from "./BallotSearch"
-import BallotTile from "./BallotTile"
+import BallotTile from "./tiles/BallotTile.js"
 import LearnMore from "./LearnMore"
 
 const StatesIndexContainer = props => {

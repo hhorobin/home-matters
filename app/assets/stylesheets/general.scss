@@ -1,6 +1,11 @@
 .body {
   background-color: #F0F5F8;
   font-family: 'Zilla Slab', serif;
+  height: 100vh;
+}
+
+.app {
+  height: 100vh;
 }
 
 .user {
@@ -87,7 +92,6 @@
 .bg {
   border-left: solid 20vw #976B6E;
   border-bottom: solid 10vw black;
-  bottom: 0;
 }
 
 .no-ballots{
@@ -97,6 +101,11 @@
   border: solid black 1px;
 }
 
+.vote-pic {
+  height: 11vw;
+  width: 11vw;
+  margin-bottom: 30vh;
+}
 @media only screen and (max-width: 750px) {
   .navbar-brand>img {
     height: 50px;

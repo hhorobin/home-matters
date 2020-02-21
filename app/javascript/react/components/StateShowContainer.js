@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react"
 import { Redirect } from "react-router-dom"
 import _ from "lodash"
-import BallotTile from './BallotTile'
-import LegislatorTile from './LegislatorTile'
+import BallotTile from './tiles/BallotTile'
+import LegislatorTile from './tiles/LegislatorTile'
+import VotePic from '../../../assets/images/VotePic.png'
 
 const StateShowContainer = (props) => {
   const [ stateBallots, setStateBallots ] = useState([])
@@ -100,7 +101,8 @@ const StateShowContainer = (props) => {
     <>
     <div className="bg">
     <div className="text sticky">
-    <h1>Home</h1><span>✓</span><h1>Matters</h1>
+      <h1>Home</h1><span>✓</span><h1>Matters</h1>
+      <img className="vote-pic" src={VotePic}/>
     </div>
       <div className="row text-center">
         <figure className="snip1104">

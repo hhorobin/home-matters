@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import EventForm from "./EventForm"
-import EventTile from "./EventTile"
+import EventTile from "./tiles/EventTile.js"
 import _ from "lodash"
 
 const BallotShowContainer = (props) => {

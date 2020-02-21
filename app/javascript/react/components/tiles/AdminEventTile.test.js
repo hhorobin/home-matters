@@ -5,7 +5,7 @@ import { BrowserRouter } from "react-router-dom"
 Enzyme.configure({ adapter: new Adapter() })
 
 import AdminEventTile from "./AdminEventTile"
-import ApproveEvents from "./ApproveEvents"
+import ApproveEvents from "../ApproveEvents.js"
 
 describe("AdminEventTile", () => {
   let wrapper, onClickMock

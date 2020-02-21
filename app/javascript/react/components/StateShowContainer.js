@@ -70,11 +70,14 @@ const StateShowContainer = (props) => {
       .then(response => {
         if (response) {
           setLegislators(response)
+          setNoRepsFound(false)
           setLoading(false)
         }
-        else
-        setLoading(false)
-        noReps()
+        else {
+          setLoading(false)
+          setLegislators([])
+          setNoRepsFound(true)
+        }
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`));
     }
@@ -83,16 +86,23 @@ const StateShowContainer = (props) => {
    setAddress(event.target.value)
   }
 
-  const handleSubmit = () => {
+  const handleSubmit = event => {
     event.preventDefault()
     searchAddress(address)
     setAddress("")
     setLoading(true)
   }
-  const noReps = () => {
-    setNoRepsFound("We couldn't find any representatives for that address.")
+
+  const openModal = (event) => {
+    event.preventDefault()
+    searchAddress(address)
+    setAddress("")
+    setLoading(true)
+    $('#exampleModal').modal('show')
   }
 
+  let errorMessage
+  if (noRepsFound) errorMessage = "We couldn't find any representatives for that address."
 
   const legislatorTiles = legislators.map((legislator) => {
     return(
@@ -109,35 +119,35 @@ const StateShowContainer = (props) => {
 
   return (
     <>
-    <div className="bg">
-    <div className="text sticky">
-      <h1>Home</h1><span>✓</span><h1>Matters</h1>
-      <img className="vote-pic" src={VotePic}/>
-    </div>
-      <div className="row text-center">
-        <figure className="snip1104">
-          <figcaption>
-            <h1> Referendums in <br/> <span>{stateName}</span> </h1>
-          </figcaption>
-        </figure>
-      </div>
-      <div className="container text-center">
-        <div className="row">
-          <div className="col-6 ballot-tiles text-center">
-          {ballotTiles}
-          </div>
-            <div className="card legislators">
-              <p>Passionate about these measures?</p>
-              <a data-toggle="collapse" href="#collapseContact" aria-expanded="false" aria-controls="collapseContact">Contact My Legislators</a>
-              <div className="collapse" id="collapseContact">
-                <form className="form-group">
-                  <input className="form-control text-center" id="address" type="text" placeholder="Street, City, State" onChange={handleInputChange} value={address}></input>
-                </form>
-                <input className="btn btn-light btn-sm" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap" onClick={handleSubmit} value="Search" readOnly={true}/>
+      <div className="bg">
+        <div className="text sticky">
+          <h1>Home</h1><span>✓</span><h1>Matters</h1>
+          <img className="vote-pic" src={VotePic}/>
+        </div>
+        <div className="row text-center">
+          <figure className="snip1104">
+            <figcaption>
+              <h1> Referendums in <br/> <span>{stateName}</span> </h1>
+            </figcaption>
+          </figure>
+        </div>
+        <div className="container text-center">
+          <div className="row">
+            <div className="col-6 ballot-tiles text-center">
+            {ballotTiles}
+            </div>
+              <div className="card legislators">
+                <p>Passionate about these measures?</p>
+                <a data-toggle="collapse" href="#collapseContact" aria-expanded="false" aria-controls="collapseContact">Contact My Legislators</a>
+                <div className="collapse" id="collapseContact">
+                  <form onSubmit={openModal} className="form-group">
+                    <input className="form-control text-center" id="address" type="text" placeholder="Street, City, State" onChange={handleInputChange} value={address}></input>
+                  </form>
+                  <input className="btn btn-light btn-sm" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap" onClick={handleSubmit} value="Search" readOnly={true}/>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
       <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div className="modal-dialog" role="document">
@@ -151,19 +161,16 @@ const StateShowContainer = (props) => {
                 <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                   </button>
-              </div>
+            </div>
             <div className="modal-body">
               {legislatorTiles}
-              {noRepsFound &&
-              <h6>
-                {noRepsFound}
-                </h6>}
+              {errorMessage}
             </div>
           </div>
         </div>
       </div>
-      </div>
-    </>
+    </div>
+  </>
   )
 }
 

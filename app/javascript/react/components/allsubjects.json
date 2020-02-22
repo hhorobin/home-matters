@@ -1,0 +1,66 @@
+[
+  {
+    "name": "taxes",
+    "count": 27
+  },
+  {
+    "name": "marijuana",
+    "count": 25
+  },
+  {
+    "name": "elections",
+    "count": 25
+  },
+  {
+    "name": "education",
+    "count": 11
+  },
+  {
+    "name": "firearms",
+    "count": 11
+  },
+  {
+    "name": "healthcare",
+    "count": 10
+  },
+  {
+    "name": "environment",
+    "count": 9
+  },
+  {
+    "name": "direct democracy",
+    "count": 9
+  },
+  {
+    "name": "redistricting",
+    "count": 8
+  },
+  {
+    "name": "transportation",
+    "count": 8
+  },
+  {
+    "name": "energy",
+    "count": 7
+  },
+  {
+    "name": "suffrage",
+    "count": 7
+  },
+  {
+    "name": "constitution",
+    "count": 6
+  },
+  {
+    "name": "government",
+    "count": 5
+  },
+  {
+    "name": "trials",
+    "count": 5
+  },
+  {
+    "name": "regulation",
+    "count": 5
+  }
+]

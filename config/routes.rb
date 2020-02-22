@@ -22,11 +22,7 @@ Rails.application.routes.draw do
         end
       end
       resources :places, only: [:create]
-      resources :ballots, only: [:index] do
-        member do
-          get :subjects
-        end
-      end
+      resources :ballots, only: [:index]
       post "ballots/search", to: "ballots#search"
       resources :events, only: [:index, :update, :destroy] do
         member do

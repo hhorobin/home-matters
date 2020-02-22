@@ -1,23 +1,17 @@
 .svg {
   display: block;
   width: 100%;
-  height: 300px;
-  background-color: #F0F5F8;
-  overflow: visible;
-}
-
-.svg rect.selection {
-  stroke: none;
+  min-width: 400px;
 }
 
 #root {
-  max-width: 600px;
+  max-width: 800px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: stretch;
   justify-content: center;
-  height: 100vh;
+  // height: 100vh;
   padding: 0 50px 150px;
   text-align: center;
   box-sizing: border-box;
@@ -47,12 +41,15 @@ video {
   margin-right: 0.5em;
 }
 
-.bar-chart {
-  width: 50vw;
-  padding: 2vw;
-}
 
 .svg text {
   font-weight: bold;
-  font-size: 20px;
+  fill: white;
+  font-size: 14px;
+}
+
+.line-chart {
+  width: 50vw;
+  height: 50vw;
+  padding: 2vw;
 }

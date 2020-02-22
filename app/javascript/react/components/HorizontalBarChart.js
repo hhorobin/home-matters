@@ -1,23 +1,26 @@
 import React, { useRef, useEffect } from "react"
 import { select, scaleBand, scaleLinear, max } from "d3"
 import useResizeObserver from "./useResizeObserver"
+import allSubjects from "./allsubjects.json"
 
-function HorizontalBarChart({ data }) {
+const HorizontalBarChart = () => {
+  const data = allSubjects
   const svgRef = useRef()
   const wrapperRef = useRef()
   const dimensions = useResizeObserver(wrapperRef)
+  const width = 800
 
   useEffect(() => {
     const svg = select(svgRef.current)
+      .attr("viewBox", `0 0 380 500`)
     if (!dimensions) return
-
     const yScale = scaleBand()
-      .paddingInner(0.1)
-      .domain(data.map((value, index) => index))
-      .range([0, dimensions.height])
+    .domain(d3.range(data.length * 2))
+    .rangeRound([0, width])
+    .paddingInner(0.2);
 
     const xScale = scaleLinear()
-      .domain([0, max(data, entry => entry.value)])
+      .domain([0, max(data, entry => entry.count)])
       .range([0, dimensions.width])
 
     svg
@@ -26,13 +29,15 @@ function HorizontalBarChart({ data }) {
       .join(enter =>
         enter.append("rect").attr("y", (entry, index) => yScale(index))
       )
-      .attr("fill", entry => entry.color)
       .attr("class", "bar")
       .attr("x", 0)
       .attr("height", yScale.bandwidth())
       .transition()
-      .attr("width", entry => xScale(entry.value))
-      .attr("y", (entry, index) => yScale(index));
+      .attr("width", entry => xScale(entry.count))
+      .attr("y", (entry, index) => yScale(index))
+      .attr("fill", function(data, i) {
+    return "rgb(50, 40, " + (i * 5) + ")"
+})
 
     svg
       .selectAll(".label")
@@ -42,12 +47,13 @@ function HorizontalBarChart({ data }) {
           .append("text")
           .attr(
             "y",
-            (entry, index) => yScale(index) + yScale.bandwidth() / 2 + 5
+            (entry, index) => yScale(index) + yScale.bandwidth()
           )
       )
-      .text(entry => `${entry.name}: ${entry.value} initiatives`)
+      .text(entry => `${entry.name}: ${entry.count}`)
       .attr("class", "label")
-      .attr("x", 10)
+
+      .attr("x", 5)
       .transition()
       .attr("y", (entry, index) => yScale(index) + yScale.bandwidth() / 2 + 5);
   }, [data, dimensions])

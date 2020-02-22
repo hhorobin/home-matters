@@ -1,7 +1,113 @@
-.hand-pic {
-  position: absolute;
-  bottom: 0;
-  z-index: -1;
-  top: 100%; left: 50%;
-  transform: translate(-50%, -50%)
+.learn-more {
+  background-color: #976C6E;
 }
+
+.definition {
+  border: solid black 1px;
+  border-style: double;
+  background-color: white;
+  width: 25vw;
+  font-family: 'Raleway', Arial, sans-serif;
+  text-transform: uppercase;
+}
+
+.definition h4 {
+  font-style: italic;
+}
+
+.quote-wrap {
+    width: 300px;
+    margin: 20px auto;
+    padding: 20px;
+    position: relative;
+}
+
+.quote-wrap p{
+    margin: 0;
+    padding: 0;
+}
+
+.quote-wrap blockquote {
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+.quote-wrap cite {
+    font-style: normal;
+}
+
+.quote-style-3 {
+    width: 300px;
+}
+
+.quote-style-3 blockquote{
+    background: #fff;
+    padding: 30px;
+    border-radius: 5px;
+}
+blockquote:after,
+ blockquote:before  {
+    top: 100%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+}
+
+blockquote:after  {
+    border-top-color: #ffffff;
+    border-width: 10px;
+    left: 65%;
+    margin-left: -10px;
+}
+
+blockquote:before {
+    border-top-color: rgba(0,0,0,0.01);
+    border-width: 11px;
+    left: 65%;
+    margin-left: -11px;
+}
+blockquote p {
+    font-family: 'Alegreya', serif;
+    font-size: 24px;
+    color: #b4b4b4;
+    font-weight: 400;
+    line-height: 40px;
+    font-style: italic;
+    text-indent: 100px;
+    position: relative;
+}
+blockquote p:before{
+    content: '\201C';
+    font-family: serif;
+    font-style: normal;
+    font-weight: 700;
+    position: absolute;
+    font-size: 100px;
+    top: 0px;
+    left: -80px;
+    color: black;
+}
+.quote-attribution {
+    text-align: right;
+    padding: 20px 100px 20px 20px;
+    position: relative;
+}
+
+.quote-author{
+    font-family: 'Alegreya SC', serif;
+    font-weight: 700;
+    font-size: 18px;
+    color: black;
+}
+
+// background: repeating-linear-gradient(
+// 45deg,
+// #FFF,
+// #FFF 4px,
+// #F0F0F0 4px,
+// #F0F0F0 8px
+// )

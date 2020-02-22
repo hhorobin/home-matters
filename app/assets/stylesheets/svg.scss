@@ -1,23 +1,21 @@
 .svg {
   display: block;
   width: 100%;
-  height: 1000px;
   background-color: #F0F5F8;
-  overflow: visible;
 }
 
-.svg rect.selection {
-  stroke: none;
-}
+// .svg rect.selection {
+//   stroke: black;
+// }
 
 #root {
-  max-width: 600px;
+  max-width: 800px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: stretch;
   justify-content: center;
-  height: 100vh;
+  // height: 100vh;
   padding: 0 50px 150px;
   text-align: center;
   box-sizing: border-box;

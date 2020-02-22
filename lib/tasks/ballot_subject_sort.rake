@@ -8,9 +8,12 @@ task :sort_ballots_by_subject => :environment do
 
     queries.each do |query|
       count = Ballot.where("LOWER(subject) ILIKE ?", "%#{query}%").count
-      subject = { name: query, count: count }
-      subject_hashes << subject
-      file = File.new("all_subjects.json", "w")
-      file.puts JSON.pretty_generate(subject_hashes)
+      if count > 4
+        subject = { name: query, count: count }
+        subject_hashes << subject
+      end
     end
+    sorted = subject_hashes.sort_by { |k| -k[:count] }
+    file = File.new("all_subjects.json", "w")
+    file.puts JSON.pretty_generate(sorted)
 end

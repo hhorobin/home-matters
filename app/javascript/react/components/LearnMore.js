@@ -6,15 +6,15 @@ import LineChart from "./LineChart"
 
 const LearnMore = () => {
   const [ ballots, setBallots ] = useState([])
-  const [data, setData] = useState(
-    Array.from({ length: 50 }, () => Math.round(Math.random() * 100))
-  );
+  // const [data, setData] = useState(
+  //   Array.from({ length: 50 }, () => Math.round(Math.random() * 100))
+  // );
 
   return (
     <>
     <div className="learn-more">
       <div className="bar-chart">
-        <h3 className="text-center">Initiative Numbers Through the Years</h3>
+        <h3 className="text-center">2020 Referendums by the Issue</h3>
         <HorizontalBarChart />
       </div>
       <LineChart

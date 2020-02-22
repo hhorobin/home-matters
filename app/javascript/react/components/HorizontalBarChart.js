@@ -13,12 +13,12 @@ const HorizontalBarChart = () => {
 
   useEffect(() => {
     const svg = select(svgRef.current)
+      .attr("viewBox", `0 0 380 600`)
     if (!dimensions) return
-
     const yScale = scaleBand()
-    .domain(d3.range(30))
+    .domain(d3.range(data.length * 2))
     .rangeRound([0, width])
-    .paddingInner(0.5);
+    .paddingInner(0.2);
 
     const xScale = scaleLinear()
       .domain([0, max(data, entry => entry.count)])
@@ -33,12 +33,10 @@ const HorizontalBarChart = () => {
       .attr("fill", "red")
       .attr("class", "bar")
       .attr("x", 0)
-      .attr("height", 20)
-      // .attr("padding", padding.top)
-      .attr('marginBottom', `60`)
+      .attr("height", yScale.bandwidth())
       .transition()
       .attr("width", entry => xScale(entry.count))
-      .attr("y", (entry, index) => yScale(index));
+      .attr("y", (entry, index) => yScale(index))
 
     svg
       .selectAll(".label")

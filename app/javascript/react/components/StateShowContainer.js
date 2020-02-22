@@ -122,7 +122,7 @@ const StateShowContainer = (props) => {
       <div className="bg">
         <div className="text sticky">
           <h1>Home</h1><span>✓</span><h1>Matters</h1>
-          
+
         </div>
         <div className="row text-center">
           <figure className="snip1104">
@@ -153,16 +153,13 @@ const StateShowContainer = (props) => {
         <div className="modal-dialog" role="document">
           <div className="modal-content">
             <div className="modal-header">
-            {loading && <div class="spinner">
-            <div className="spinner-a"></div>
-            <div className="spinner-b"></div>
-            </div>}
               <h5 className="modal-title-center" id="exampleModalLongTitle">Your Representatives:</h5>
                 <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                   </button>
             </div>
             <div className="modal-body">
+            {loading && <h5>Loading...</h5>}
               {legislatorTiles}
               {errorMessage}
             </div>

@@ -2,8 +2,8 @@ class Api::V1::PlacesController < ApplicationController
 
   def create
     address_object = Geocoder.search(params["_json"])
-    
-    if address_object == []
+
+    if address_object.length == 0
       render json: false
     else
       coordinates = {latitude: address_object[0].data["lat"], longitude: address_object[0].data["lon"]}
@@ -15,7 +15,12 @@ class Api::V1::PlacesController < ApplicationController
       result = response.map do |legislator|
         legislator
       end
-      render json: result
+
+      if result.length > 0
+        render json: result
+      else
+        render json: false
+      end
     end
   end
 end

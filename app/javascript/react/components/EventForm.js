@@ -1,10 +1,11 @@
 import React, { useState } from "react"
 import ErrorList from "./ErrorList"
 import _ from "lodash"
+import Hands from "../../../assets/images/Hands.png"
 
 const EventForm = (props) => {
   const { handleInputChange, handleSubmit, newEvent, errors, signedIn } = props
-  let className
+  let className = "post"
 
   if(signedIn === false){
     className = "hidden"
@@ -17,6 +18,9 @@ const EventForm = (props) => {
         <button type="button" className="btn-lg btn-secondary text-center post" data-toggle="modal" data-target="#formModal">
         Post an Event
         </button>
+        <div className="hand-pic">
+          <img src={Hands}/>
+        </div>
       </div>
       <div className="modal fade bd-modal-lg" id="formModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div className="modal-dialog modal-lg" role="document">

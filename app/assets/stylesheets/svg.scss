@@ -1,12 +1,8 @@
 .svg {
   display: block;
   width: 100%;
-  background-color: #F0F5F8;
+  min-width: 400px;
 }
-
-// .svg rect.selection {
-//   stroke: black;
-// }
 
 #root {
   max-width: 800px;
@@ -45,22 +41,15 @@ video {
   margin-right: 0.5em;
 }
 
-.bar-chart {
-  height: 1000px;
-  width: 400px
-}
 
 .svg text {
   font-weight: bold;
-  font-size: 20px;
+  fill: white;
+  font-size: 14px;
 }
 
 .line-chart {
   width: 50vw;
   height: 50vw;
   padding: 2vw;
-}
-
-rect {
-
 }

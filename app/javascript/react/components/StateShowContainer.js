@@ -3,7 +3,7 @@ import { Redirect } from "react-router-dom"
 import _ from "lodash"
 import BallotTile from './tiles/BallotTile'
 import LegislatorTile from './tiles/LegislatorTile'
-import VotePic from '../../../assets/images/VotePic.png'
+// import VotePic from '../../../assets/images/VotePic.png'
 
 const StateShowContainer = (props) => {
   const [ stateBallots, setStateBallots ] = useState([])
@@ -122,12 +122,12 @@ const StateShowContainer = (props) => {
       <div className="bg">
         <div className="text sticky">
           <h1>Home</h1><span>✓</span><h1>Matters</h1>
-          <img className="vote-pic" src={VotePic}/>
+          
         </div>
         <div className="row text-center">
           <figure className="snip1104">
             <figcaption>
-              <h1> Referendums in <br/> <span>{stateName}</span> </h1>
+              <h1> Initiatives in <br/> <span>{stateName}</span> </h1>
             </figcaption>
           </figure>
         </div>
@@ -137,7 +137,7 @@ const StateShowContainer = (props) => {
             {ballotTiles}
             </div>
               <div className="card legislators">
-                <p>Passionate about these measures?</p>
+                <p>Passionate about these issues?</p>
                 <a data-toggle="collapse" href="#collapseContact" aria-expanded="false" aria-controls="collapseContact">Contact My Legislators</a>
                 <div className="collapse" id="collapseContact">
                   <form onSubmit={openModal} className="form-group">

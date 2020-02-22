@@ -54,7 +54,7 @@ const MapChart = () => {
         setPath(`/states/${selectedState.id}`)
       }
       else {
-        window.alert("This state does not have any upcoming ballot referendums.")
+        window.alert("This state does not have any upcoming ballot initiatives.")
       }
     }
 

@@ -1,63 +1,31 @@
 
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import HorizontalBarChart from "./HorizontalBarChart"
 import Hands from "../../../assets/images/Hands"
+import LineChart from "./LineChart"
 
-function LearnMore() {
-  const [iteration, setIteration] = useState(0)
-  const [start, setStart] = useState(false)
-  const [data, setData] = useState([
-    {
-      name: "2018",
-      value: 68,
-      color: "#fcc169"
-    },
-    {
-      name: "2016",
-      value: 71,
-      color: "#6D996B",
-    },
-    {
-      name: "2014",
-      value: 38,
-      color: "#C9C5BF"
-    },
-    {
-      name: "2010",
-      value: 50,
-      color: "#6B6D99"
-    },
-    {
-      name: "2008",
-      value: 59,
-      color: "#c2b0c9"
-    },
-    {
-      name: "2000",
-      value: 76,
-      color: "#365055"
-    },
-    {
-      name: "1996",
-      value: 93,
-      color: "#986B6D"
-    }
-  ])
+const LearnMore = () => {
+  const [ ballots, setBallots ] = useState([])
+  const [data, setData] = useState(
+    Array.from({ length: 50 }, () => Math.round(Math.random() * 100))
+  );
 
   return (
     <>
     <div className="learn-more">
       <div className="bar-chart">
         <h3 className="text-center">Initiative Numbers Through the Years</h3>
-        <HorizontalBarChart data={data} />
+        <HorizontalBarChart />
       </div>
-
-      <div className="hand-pic">
-        <img src={Hands}/>
-      </div>
+      <LineChart
+      />
     </div>
+
     </>
   )
 }
 
+// <div className="hand-pic">
+//   <img src={Hands}/>
+// </div>
 export default LearnMore;

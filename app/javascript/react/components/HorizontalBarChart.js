@@ -1,23 +1,27 @@
 import React, { useRef, useEffect } from "react"
 import { select, scaleBand, scaleLinear, max } from "d3"
 import useResizeObserver from "./useResizeObserver"
+import allSubjects from "./allsubjects.json"
 
-function HorizontalBarChart({ data }) {
+const HorizontalBarChart = () => {
+  const data = allSubjects
   const svgRef = useRef()
   const wrapperRef = useRef()
   const dimensions = useResizeObserver(wrapperRef)
+  const padding = {top: 60, right: 60, bottom: 60, left: 60}
+  const width = 800
 
   useEffect(() => {
     const svg = select(svgRef.current)
     if (!dimensions) return
 
     const yScale = scaleBand()
-      .paddingInner(0.1)
-      .domain(data.map((value, index) => index))
-      .range([0, dimensions.height])
+    .domain(d3.range(30))
+    .rangeRound([0, width])
+    .paddingInner(0.5);
 
     const xScale = scaleLinear()
-      .domain([0, max(data, entry => entry.value)])
+      .domain([0, max(data, entry => entry.count)])
       .range([0, dimensions.width])
 
     svg
@@ -26,12 +30,14 @@ function HorizontalBarChart({ data }) {
       .join(enter =>
         enter.append("rect").attr("y", (entry, index) => yScale(index))
       )
-      .attr("fill", entry => entry.color)
+      .attr("fill", "red")
       .attr("class", "bar")
       .attr("x", 0)
-      .attr("height", yScale.bandwidth())
+      .attr("height", 20)
+      // .attr("padding", padding.top)
+      .attr('marginBottom', `60`)
       .transition()
-      .attr("width", entry => xScale(entry.value))
+      .attr("width", entry => xScale(entry.count))
       .attr("y", (entry, index) => yScale(index));
 
     svg
@@ -45,7 +51,7 @@ function HorizontalBarChart({ data }) {
             (entry, index) => yScale(index) + yScale.bandwidth() / 2 + 5
           )
       )
-      .text(entry => `${entry.name}: ${entry.value} initiatives`)
+      .text(entry => `${entry.name}: ${entry.count}`)
       .attr("class", "label")
       .attr("x", 10)
       .transition()

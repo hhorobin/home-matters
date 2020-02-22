@@ -1,0 +1,122 @@
+[
+  {
+    "name": "education",
+    "count": 11
+  },
+  {
+    "name": "taxes",
+    "count": 27
+  },
+  {
+    "name": "environment",
+    "count": 9
+  },
+  {
+    "name": "energy",
+    "count": 7
+  },
+  {
+    "name": "marijuana",
+    "count": 25
+  },
+  {
+    "name": "campaign finance",
+    "count": 3
+  },
+  {
+    "name": "immigration",
+    "count": 2
+  },
+  {
+    "name": "healthcare",
+    "count": 10
+  },
+  {
+    "name": "minimum wage",
+    "count": 3
+  },
+  {
+    "name": "government",
+    "count": 5
+  },
+  {
+    "name": "agriculture",
+    "count": 3
+  },
+  {
+    "name": "regulation",
+    "count": 5
+  },
+  {
+    "name": "elections",
+    "count": 25
+  },
+  {
+    "name": "LGBT",
+    "count": 1
+  },
+  {
+    "name": "parks",
+    "count": 2
+  },
+  {
+    "name": "animals",
+    "count": 2
+  },
+  {
+    "name": "direct democracy",
+    "count": 9
+  },
+  {
+    "name": "redistricting",
+    "count": 8
+  },
+  {
+    "name": "term limits",
+    "count": 4
+  },
+  {
+    "name": "transportation",
+    "count": 8
+  },
+  {
+    "name": "firearms",
+    "count": 11
+  },
+  {
+    "name": "judiciary",
+    "count": 4
+  },
+  {
+    "name": "constitution",
+    "count": 6
+  },
+  {
+    "name": "law enforcement",
+    "count": 4
+  },
+  {
+    "name": "housing",
+    "count": 2
+  },
+  {
+    "name": "eminent domain",
+    "count": 2
+  },
+  {
+    "name": "unions",
+    "count": 3
+  },
+  {
+    "name": "lobbying",
+    "count": 1
+  },
+  {
+    "name": "trials",
+    "count": 5
+  },
+  {
+    "name": "suffrage",
+    "count": 7
+  }
+]

@@ -8,13 +8,12 @@ const BallotSearch = (props) => {
       <h5 className="mr-2 mt-1">Search for ballots by topic</h5>
       <input
         type="text"
+        className="h-50"
         value={query.searchString}
         onChange={handleInputChange}
         >
       </input>
-      <div>
-        <input className="btn btn-light ml-3" type="submit" value="Search" />
-      </div>
+      <input className="btn btn-light ml-3 mb-6 mt-0" type="submit" value="Search" />
     </form>
   )
 }

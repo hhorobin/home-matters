@@ -55,7 +55,7 @@ figure.snip1104 h1 span {
 }
 
 .ballot-tiles {
-  left: 30vh
+  left: 30vh;
 }
 
 .results {
@@ -67,27 +67,33 @@ figure.snip1104 h1 span {
   position: fixed;
 }
 
+.ballot {
+  border: black 3px;
+  border-style: dotted;
+}
+
 @media only screen and (max-width: 750px) {
   figure.snip1104 {
     min-width: 90vw;
-    height: 25vw;
+    min-height: 25vw;
     margin-bottom: 1vh;
     margin-top: 1vh;
   }
   figure.snip1104 h1 {
-    font-size: 14px;
+    font-size: 16px;
   }
   figure.snip1104 h1 span {
-    font-size: 14px;
+    font-size: 16px;
   }
   .ballot-tiles {
     min-width: 80vw;
   }
   .legislators {
-    display:none;
+    position: fixed;
+    bottom: 0;
   }
   .ballot-tiles {
-    left: 0vw;
+    left: 10vw;
   }
   .bg {
     border-left: solid 2vw #F0F5F8;

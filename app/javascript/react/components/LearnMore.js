@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react"
 import HorizontalBarChart from "./HorizontalBarChart"
-import Hands from "../../../assets/images/Hands"
 
 const LearnMore = () => {
   window.scrollTo(0,0)

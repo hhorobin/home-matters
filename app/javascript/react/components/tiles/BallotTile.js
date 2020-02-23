@@ -11,8 +11,8 @@ const BallotTile = (props) => {
       <h3 id="ballot-name" className="p-2">{name}</h3>
       <div className="card-subtitle mb-2 text-muted">
         <p id="ballot-subject">Subject: {subject}</p>
-        <p id="ballot-description" className="p-2">{description}</p>
       </div>
+      <p id="ballot-description">{description}</p>
       <Link to={`/states/${stateId}/ballots/${id}`}>
         <div className="btn btn-secondary">Get Involved</div>
       </Link>

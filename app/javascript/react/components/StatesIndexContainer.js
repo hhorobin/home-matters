@@ -80,10 +80,9 @@ const StatesIndexContainer = props => {
 
   return (
     <div>
-      <p className="welcome">Choose your state to learn about upcoming ballot initiatives and referendums</p>
       <div className={className}>
+        <p className="welcome">Choose your state to learn about upcoming ballot initiatives and referendums</p>
         <div className="text-right">
-
         </div>
         {noBallots &&
         <div class="alert w-50 no-ballots text-center" role="alert">
@@ -113,7 +112,7 @@ const StatesIndexContainer = props => {
           </div>
         </div>
       </div>
-      <div className="text-center">
+      <div className="text-center search-results">
         {searchLinks}
       </div>
     </div>

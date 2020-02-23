@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react"
 import EventForm from "./EventForm"
 import EventTile from "./tiles/EventTile.js"
 import _ from "lodash"
-import Hands from "../../../assets/images/Hands.png"
 
 const BallotShowContainer = (props) => {
   const stateId = props.match.params.state_id

@@ -131,4 +131,15 @@
     bottom: 0;
     height: 50vh;
   }
+  .search-text {
+    font-size: 14px;
+  }
+  .search-button {
+    width: 80px;
+    border: solid black 1px;
+  }
+  .search-results {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
 }

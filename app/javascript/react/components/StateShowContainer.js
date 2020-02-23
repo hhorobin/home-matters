@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react"
+import { Link } from "react-router-dom"
 import { Redirect } from "react-router-dom"
 import _ from "lodash"
 import BallotTile from './tiles/BallotTile'
 import LegislatorTile from './tiles/LegislatorTile'
-// import VotePic from '../../../assets/images/VotePic.png'
 
 const StateShowContainer = (props) => {
   const [ stateBallots, setStateBallots ] = useState([])
@@ -122,7 +122,9 @@ const StateShowContainer = (props) => {
       <div className="bg">
         <div className="text sticky">
           <h1>Home</h1><span>✓</span><h1>Matters</h1>
-
+          <Link className="text-black mt-3" to="/learn">
+            What's a ballot initiative?
+          </Link>
         </div>
         <div className="row text-center">
           <figure className="snip1104">

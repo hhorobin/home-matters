@@ -8,16 +8,16 @@ const HorizontalBarChart = () => {
   const svgRef = useRef()
   const wrapperRef = useRef()
   const dimensions = useResizeObserver(wrapperRef)
-  const width = 1000
+  const width = 1200
 
   useEffect(() => {
     const svg = select(svgRef.current)
-      .attr("viewBox", `0 0 380 500`)
+      .attr("viewBox", `0 0 600 600`)
     if (!dimensions) return
     const yScale = scaleBand()
     .domain(d3.range(data.length * 2))
     .rangeRound([0, width])
-    .paddingInner(0.4);
+    .paddingInner(0.3)
 
     const xScale = scaleLinear()
       .domain([0, max(data, entry => entry.count)])
@@ -36,9 +36,8 @@ const HorizontalBarChart = () => {
       .attr("width", entry => xScale(entry.count))
       .attr("y", (entry, index) => yScale(index))
       .attr("fill", function(data, i) {
-    return "rgb(40, 95, " + (i * 10) + ")"
-
-})
+        return "rgb(130, " +  (i * 12) + ", 80)"
+      })
 
     svg
       .selectAll(".label")
@@ -56,7 +55,7 @@ const HorizontalBarChart = () => {
 
       .attr("x", 2)
       .transition()
-      .attr("y", (entry, index) => yScale(index) + yScale.bandwidth() / 2 + 5);
+      .attr("y", (entry, index) => yScale(index) + yScale.bandwidth() / 2 + 5)
   }, [data, dimensions])
 
   return (

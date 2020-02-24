@@ -3,8 +3,8 @@ import React from "react"
 const ResponseTile = (props) => {
   const handleResponseClick = event => {
     event.preventDefault()
-    props.addResponse()
     props.sendHostText()
+    props.addResponse()
   }
 
   return(

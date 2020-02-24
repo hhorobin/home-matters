@@ -20,8 +20,8 @@ Visit localhost:3000
 
 ## Running the tests
 
--yarn test
--bundle exec rspec
+- yarn test
+- bundle exec rspec
 
 
 ### Technologies Used

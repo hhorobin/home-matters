@@ -160,7 +160,7 @@ const StateShowContainer = (props) => {
                   <span aria-hidden="true">&times;</span>
                   </button>
             </div>
-            <div className="modal-body">
+            <div className="modal-body info">
             {loading && <h5>Loading...</h5>}
               {legislatorTiles}
               {errorMessage}

@@ -36,7 +36,7 @@ const HorizontalBarChart = () => {
       .attr("width", entry => xScale(entry.count))
       .attr("y", (entry, index) => yScale(index))
       .attr("fill", function(data, i) {
-        return "rgb(130, " +  (i * 12) + ", 80)"
+        return "rgb(180, " +  (i * 12) + ", 70)"
       })
 
     svg

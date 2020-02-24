@@ -46,3 +46,25 @@ div.upcoming-events span {
 h3 {
   color: black;
 }
+
+#ballot-description {
+  font-size: 20px;
+}
+
+#ballot-subject {
+  font-size: 18px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+}
+
+.rep-tiles {
+  justify-content: center;
+  align-content: center;
+}
+
+.rep-pic {
+  object-fit: cover;
+}

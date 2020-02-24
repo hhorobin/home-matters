@@ -91,7 +91,7 @@ const MapChart = () => {
                           centroid[0] < -67 &&
                           (Object.keys(offsets).indexOf(cur.id) === -1 ? (
                             <Marker className="svg_marker" coordinates={centroid}>
-                              <text y="2" fontWeight="bold" fontSize={12} textAnchor="middle" >
+                              <text y="2" fontWeight="bold" fontSize={14} textAnchor="middle" >
                               {cur.id}
                               </text>
                             </Marker>
@@ -102,7 +102,7 @@ const MapChart = () => {
                               dx={offsets[cur.id][0]}
                               dy={offsets[cur.id][1]}
                             >
-                              <text className="state-text" x={4} fontWeight="bold" fontSize={12} alignmentBaseline="middle" >
+                              <text className="state-text" x={4} fontWeight="bold" fontSize={14} alignmentBaseline="middle" >
                                 {cur.id}
                               </text>
                             </Annotation>

@@ -17,7 +17,7 @@ const LearnMore = () => {
           <div className="row">
             <div className="col sm-3">
               <div className="bar-chart">
-                <h4 className="text-center">2020 Initiatives by the Issue</h4>
+                <h4 className="text-center font-weight-bold">2020 Initiatives by the Issue</h4>
                 <HorizontalBarChart />
               </div>
             </div>

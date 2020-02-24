@@ -3,6 +3,8 @@ import ResponseTile from "./ResponseTile"
 
 const EventTile = props => {
   const [ responses, setResponses ] = useState(props.responses)
+  const [ alert, setAlert ] = useState(false)
+  const [ alertMessage, setAlertMessage ] = useState("")
   const { id, title, description, address, city, state, date, time, ballotId, creatorContact } = props
 
   const addResponse = () => {
@@ -49,7 +51,8 @@ const EventTile = props => {
     })
     .then(response => response.json())
     .then(response => {
-      window.alert(response.message)
+      setAlert(true)
+      setAlertMessage(response.message)
       return response
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`))
@@ -57,6 +60,13 @@ const EventTile = props => {
 
   return (
     <div>
+    {alert &&
+      <div className="alert alert-dark w-50 text-center response-alert" role="alert">
+        {alertMessage}
+        <button type="button" className="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>}
       <div className="row justify-content-center">
         <div className="col-md-6 text-center event">
           <h3 className="event-title">{title}</h3>
@@ -65,9 +75,9 @@ const EventTile = props => {
           <p>{date} at {time}</p>
           <p>Contact {creatorContact} for more info</p>
           <ResponseTile
-          sendHostText={sendHostText}
-          addResponse={addResponse}
-          responses={responses}
+            sendHostText={sendHostText}
+            addResponse={addResponse}
+            responses={responses}
           />
           <p className="attendees">Going: {responses.length}</p>
         </div>

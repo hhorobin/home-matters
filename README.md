@@ -2,25 +2,46 @@
 
 [![Codeship Status for hhorobin/home-matters](https://app.codeship.com/projects/a1b51010-2e3f-0138-11ca-56b7d5cdb6a3/status?branch=master)](https://app.codeship.com/projects/384803)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Heroku Link:https://home-matters.herokuapp.com/
 
-Things you may want to cover:
+## Description
+A non-partisan app to help users get informed about and involved in upcoming state initiatives and referendums. To source data, created Nokogiri scraper and used the OpenStates API.
 
-* Ruby version
+## To Run Locally
+- download the repo
+- yarn install
+- bundle exec bundle install
+- bundle exec rake db:create
+- bundle exec rake db:migrate
+- bundle exec rake db:seed
+- yarn start
+- rails s
+Visit localhost:3000
 
-* System dependencies
+## Running the tests
 
-* Configuration
+-yarn test
+-bundle exec rspec
 
-* Database creation
 
-* Database initialization
+### Technologies Used
+- Ruby - 2.6.5
+- Rails - 5.2.3
+- React - 16.8.0
+- PostgreSQL
+- Bootstrap
+- httparty
+- openStates API
+- Nokogiri
+- Geocoder
+- D3.js
+- SVG
+- Twilio
+- FactoryBot
+- Devise
 
-* How to run the test suite
+## Author
+* **Hannah Horobin**
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Acknowledgments
+* Thanks to Alexandra Weber for creating the logo

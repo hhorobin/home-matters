@@ -12,7 +12,7 @@ const HorizontalBarChart = () => {
 
   useEffect(() => {
     const svg = select(svgRef.current)
-      .attr("viewBox", `0 0 600 600`)
+      .attr("viewBox", `0 0 900 900`)
     if (!dimensions) return
     const yScale = scaleBand()
     .domain(d3.range(data.length * 2))

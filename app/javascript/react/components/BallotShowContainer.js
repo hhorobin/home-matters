@@ -44,7 +44,7 @@ const BallotShowContainer = (props) => {
       setEvents(approved)
       setSignedIn(response.ballot.signed_in)
     })
-    .catch(error => console.error(`Error in fetch: ${error.message}`));
+    .catch(error => console.error(`Error in fetch: ${error.message}`))
   }, [])
 
   const addNewEvent = (formPayload) => {

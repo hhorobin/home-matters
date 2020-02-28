@@ -177,3 +177,26 @@ right: 0px;
   from{width:0px}
   to{width:78%;}
 }
+
+@media only screen and (max-width: 750px) {
+  .question{
+    width: 80vw;
+  }
+  .answer {
+    width: 80vw;
+  }
+  .my-arrow {
+    display: none;
+  }
+  .ui_box {
+    width: 70vw;
+    height: 35vh;
+    margin-left: 10vw;
+  }
+  .ui_box h2, span{
+    font-size: 1.2em;
+  }
+  .ui_box p {
+    font-size: 0.9em;
+  }
+}
